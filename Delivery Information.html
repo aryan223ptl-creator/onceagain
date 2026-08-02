@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1K579PQJE"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-P1K579PQJE');
+    </script>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delivery Information - HypeHaus</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
+    <!-- Vendor CSS (Icon Font) -->
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/pe-icon-7-stroke.min.css">
+
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/aos.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Three.js Library for 3D Visualizer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap');
+
+    body {
+        background-color: #ffffff !important;
+        color: #111111 !important;
+    }
+
+    .hype-container {
+      background-color: #ffffff;
+      color: #000000;
+      padding: 12px 0;
+      overflow: hidden;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      border-top: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+    }
+
+    .hype-container:hover {
+      background-color: #000000;
+      color: #ffffff;
+      border-top: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+    }
+
+    .marquee-content {
+      display: flex;
+      white-space: nowrap;
+      animation: warp-scroll 12s linear infinite;
+    }
+
+    .marquee-content span {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding-right: 40px;
+    }
+
+    @keyframes warp-scroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* RESPONSIVE LOGO OPTIMIZATIONS */
+    .header-logo-img {
+      width: 100%;
+      max-width: 220px; 
+      height: auto;
+      max-height: 80px; 
+      object-fit: contain;
+      display: block;
+    }
+
+    /* WHITE THEME DELIVERY PAGE STYLES */
+    .delivery-section {
+      padding: 80px 0;
+      background: #ffffff;
+      color: #111111;
+    }
+
+    .delivery-card {
+      background: #f9f9f9;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .delivery-card h2 {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #e5e5e5;
+      padding-bottom: 15px;
+    }
+
+    /* 3D Viewport Styling */
+    .3d-viewport-wrapper {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.02);
+    }
+
+    #canvas-container {
+      width: 100%;
+      height: 300px;
+      cursor: grab;
+    }
+    #canvas-container:active {
+      cursor: grabbing;
+    }
+
+    .canvas-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ccc;
+      color: #000000;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-family: 'Syncopate', sans-serif;
+      pointer-events: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .timeline-box {
+      background: #ffffff;
+      border-left: 4px solid #000000;
+      border-top: 1px solid #eee;
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 20px;
+      border-radius: 4px;
+      margin-bottom: 25px;
+    }
+
+    .timeline-box h4 {
+      color: #000000;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-family: 'Syncopate', sans-serif;
+    }
+
+    .delivery-info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .delivery-info-list li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #333333;
+      line-height: 1.6;
+    }
+
+    .delivery-info-list li i {
+      position: absolute;
+      left: 0;
+      top: 3px;
+      color: #000000;
+      font-size: 1.2rem;
+    }
+
+    .call-support-box {
+      background: #ffffff;
+      border: 2px solid #000000;
+      border-radius: 8px;
+      padding: 25px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .call-support-box h3 {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 1.1rem;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+
+    .call-support-box p {
+      color: #555555;
+      margin-bottom: 15px;
+    }
+
+    .call-support-box a {
+      color: #000000;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .call-support-box a:hover {
+      text-decoration: underline;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="header section">
+        <div class="header-top bg-light">
+            <div class="container">
+                <div class="row row-cols-xl-2 align-items-center"></div>
+            </div>
+        </div>
+
+        <!-- Marquee Banner -->
+        <div class="hype-container">
+          <div class="marquee-track">
+            <div class="marquee-content">
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Header Bottom Start -->
+        <div class="header-bottom">
+            <div class="header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-3 col-6">
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <img class="header-logo-img" src="assets/images/logo/Hypehaus.png" alt="Site Logo" />
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+
+                        <!-- Header Menu Start -->
+                        <div class="col-xl-7 d-none d-xl-block">
+                            <div class="main-menu position-relative">
+                                <ul>
+                                    <li><a href="index.html"><span>Home</span></a></li>
+                                    <li class="has-children position-static">
+                                        <a href="#"><span>Shop</span> <i class="fa fa-angle-down"></i></a>
+                                        <ul class="mega-menu row-cols-4">
+                                            <li class="col">
+                                                <h4 class="mega-menu-title">Shop Layout</h4>
+                                                <ul class="mb-n2">
+                                                   <li><a href="Shoe.html">Shoes</a></li>
+                                     <li><a href="Jersey.html">Jerseys</a></li>
+                                     <li><a href="tshirt.html">T-Shirts</a></li> 
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="about.html"><span>About</span></a></li>
+                                    <li><a href="contact.html"><span>Contact</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Header Menu End -->
+
+                        <!-- Header Action Start -->
+                        <div class="col-xl-2 col-6">
+                            <div class="header-actions justify-content-end">
+                                <a href="javascript:void(0)" class="header-action-btn header-action-btn-menu d-xl-none d-lg-block">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Action End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Bottom End -->
+
+        <!-- Mobile Menu Start -->
+        <div class="mobile-menu-wrapper">
+            <div class="offcanvas-overlay"></div>
+            <div class="mobile-menu-inner">
+                <div class="offcanvas-btn-close">
+                    <i class="pe-7s-close"></i>
+                </div>
+                
+                <div class="mobile-navigation">
+                    <nav>
+                        <ul class="mobile-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="has-children">
+                                <a href="#">Shop <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul class="dropdown">
+                                   <li><a href="Shoe.html">Shoes</a></li>
+                                     <li><a href="Jersey.html">Jerseys</a></li>
+                                     <li><a href="tshirt.html">T-Shirts</a></li>                                
+                                </ul>
+                            </li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="mt-auto">
+                    <ul class="contact-links">
+                        <li><i class="fa fa-phone"></i><a href="#"> +91 97249 57688</a></li>
+                        <li><i class="fa fa-envelope-o"></i><a href="#"> hypehaus.gmail.com</a></li>
+                        <li><i class="fa fa-clock-o"></i> <span>Monday - Sunday 9.00 - 09.00</span> </li>
+                    </ul>
+                    <div class="widget-social">
+                        <a title="Instagram" href="https://www.instagram.com/hypehaus.store/"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu End -->
+    </div>
+
+    <!-- Breadcrumb Section Start -->
+    <div class="section breadcrumb-area bg-light style-two">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="breadcrumb-wrapper">
+                        <h1 class="page-title">Delivery Information</h1>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li>Delivery Information</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Delivery Content Section Start -->
+    <div class="delivery-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="delivery-card">
+                        <h2>Shipping & Delivery Policy</h2>
+
+                        <!-- Interactive 3D Package Viewport -->
+                        <div class="3d-viewport-wrapper">
+                            <div id="canvas-container"></div>
+                            <div class="canvas-hint">
+                                <i class="fa fa-arrows"></i> Drag to rotate
+                            </div>
+                        </div>
+
+                        <div class="timeline-box">
+                            <h4>Standard Delivery Timeline</h4>
+                            <p class="mb-0">All orders are processed with strict quality checks. Your order will usually be delivered within <strong>10 to 15 days</strong> across India.</p>
+                        </div>
+
+                        <ul class="delivery-info-list">
+                            <li>
+                                <i class="fa fa-truck"></i>
+                                <strong>Estimated Delivery Window:</strong> Standard orders take approximately <strong>10–15 business days</strong> to reach your doorstep.
+                            </li>
+                            <li>
+                                <i class="fa fa-exclamation-triangle"></i>
+                                <strong>Delays & Logistics:</strong> In rare cases involving unexpected courier delays, logistics issues, or custom checks, delivery may take between <strong>15 to 20 days</strong>.
+                            </li>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <strong>Personal Phone Updates:</strong> We take personal care of every order. If there is any delay with your shipment, our support team will <strong>call you directly on your phone number</strong> to keep you updated on the status.
+                            </li>
+                            <li>
+                                <i class="fa fa-shield"></i>
+                                <strong>Quality Assurance:</strong> Every product goes through thorough inspection before dispatch so you receive premium quality products every single time.
+                            </li>
+                        </ul>
+
+                        <div class="call-support-box">
+                            <h3>Need Immediate Order Updates?</h3>
+                            <p>Our support team is active 24/7 to assist you with your delivery status.</p>
+                            <a href="tel:+919724957688"><i class="fa fa-phone"></i> +91 97249 57688</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Delivery Content Section End -->
+
+    <!-- Footer Section Start -->
+    <footer class="section footer-section">
+        <div class="footer-top section-padding">
+            <div class="container">
+                <div class="row mb-n10">
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-4 mb-10" data-aos="fade-up" data-aos-delay="200">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Contact Us</h2>
+                            <ul class="widget-address">
+                                <li><span>Address: </span>INDIA, Gujarat</li>
+                                <li><span>Call to: </span> <a href="#"> +91 97249 57688</a></li>
+                                <li><span>Mail to: </span> <a href="#"> hypehaus.gmail.com</a></li>
+                            </ul>
+                            <div class="widget-social justify-content-start mt-4">
+                                <a title="Instagram" href="https://www.instagram.com/hypehaus.store/"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-2 col-xl-2 mb-10" data-aos="fade-up" data-aos-delay="300">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Information</h2>
+                            <ul class="widget-list">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="Delivery Information.html">Delivery Information</a></li>
+                                <li><a href="terms-condition.html">Privacy Policy</a></li>
+                                <li><a href="terms-condition.html">Terms & Conditions</a></li>
+                                <li><a href="terms-condition.html">Customer Service</a></li>
+                                <li><a href="terms-condition.html">Return Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-4 mb-10" data-aos="fade-up" data-aos-delay="500">
+                        <div class="single-footer-widget">
+                            <div class="widget-body">
+                                <div class="newsletter-form-wrap pt-4">
+                                    <form action="https://formsubmit.co/aryan223ptl@gmail.com" method="POST" id="mc-form" class="mc-form">
+                                        <input type="hidden" name="_captcha" value="false">
+                                        <input type="email" id="mc-email" class="form-control email-box mb-4" placeholder="Enter your email here.." name="email" required>
+                                        <button id="mc-submit" class="newsletter-btn btn btn-primary btn-hover-dark" type="submit">Subscribe</button>
+                                    </form>
+                                    <div class="mailchimp-alerts text-centre mt-2">
+                                        <div id="subscription-status"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center">
+                        <div class="copyright-content">
+                            <p class="mb-0">©2026 Made with <i class="fa fa-heart text-danger"></i> by <a href="#">HypeHaus</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Scroll Top Start -->
+    <a href="#" class="scroll-top" id="scroll-top">
+        <i class="arrow-top fa fa-long-arrow-up"></i>
+        <i class="arrow-bottom fa fa-long-arrow-up"></i>
+    </a>
+    <!-- Scroll Top End -->
+
+    <!-- Vendors JS -->
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
+    <!-- Plugins JS -->
+    <script src="assets/js/plugins/countdown.min.js"></script>
+    <script src="assets/js/plugins/aos.min.js"></script>
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/nice-select.min.js"></script>
+    <script src="assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/plugins/jquery-ui.min.js"></script>
+    <script src="assets/js/plugins/lightgallery-all.min.js"></script>
+    <script src="assets/js/plugins/thia-sticky-sidebar.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Form Handler
+        document.getElementById('mc-form').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            var form = this;
+            var status = document.getElementById('subscription-status');
+            var data = new FormData(form);
+            
+            status.innerHTML = '<span class="text-info">Submitting...</span>';
+            
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = '<span class="text-success">Thank you! You have successfully subscribed.</span>';
+                    form.reset(); 
+                } else {
+                    status.innerHTML = '<span class="text-danger">Oops! There was a problem submitting your subscription.</span>';
+                }
+            }).catch(error => {
+                status.innerHTML = '<span class="text-danger">Oops! Connection error. Please try again later.</span>';
+            });
+        });
+
+        // --- 3D Shipping Box Initialization Script ---
+        const container = document.getElementById('canvas-container');
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+        camera.position.set(0, 2, 5);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        // Lights tuned for light background
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+        scene.add(ambientLight);
+
+        const dirLight1 = new THREE.DirectionalLight(0x000000, 0.8);
+        dirLight1.position.set(5, 10, 7);
+        scene.add(dirLight1);
+
+        const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.6);
+        dirLight2.position.set(-5, -5, -5);
+        scene.add(dirLight2);
+
+        // 3D Box Mesh Group
+        const boxGroup = new THREE.Group();
+
+        // Cardboard Box
+        const boxGeometry = new THREE.BoxGeometry(1.6, 1.2, 1.6);
+        const boxMaterial = new THREE.MeshStandardMaterial({ 
+            color: 0xd4a373, 
+            roughness: 0.5, 
+            metalness: 0.1 
+        });
+        const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+        boxGroup.add(boxMesh);
+
+        // Sealing Tape
+        const tapeGeometry = new THREE.BoxGeometry(0.3, 0.01, 1.62);
+        const tapeMaterial = new THREE.MeshStandardMaterial({ color: 0x333333, roughness: 0.3 });
+        const tapeMesh = new THREE.Mesh(tapeGeometry, tapeMaterial);
+        tapeMesh.position.y = 0.605;
+        boxGroup.add(tapeMesh);
+
+        // Shipping Label
+        const labelGeometry = new THREE.PlaneGeometry(0.5, 0.4);
+        const labelMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide });
+        const labelMesh = new THREE.Mesh(labelGeometry, labelMaterial);
+        labelMesh.position.set(0.4, 0.61, 0.2);
+        labelMesh.rotation.x = -Math.PI / 2;
+        boxGroup.add(labelMesh);
+
+        scene.add(boxGroup);
+
+        // Drag Controls
+        let isDragging = false;
+        let previousMousePosition = { x: 0, y: 0 };
+
+        container.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            previousMousePosition = { x: e.clientX, y: e.clientY };
+        });
+
+        window.addEventListener('mouseup', () => isDragging = false);
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const deltaMove = {
+                x: e.clientX - previousMousePosition.x,
+                y: e.clientY - previousMousePosition.y
+            };
+
+            boxGroup.rotation.y += deltaMove.x * 0.01;
+            boxGroup.rotation.x += deltaMove.y * 0.01;
+
+            previousMousePosition = { x: e.clientX, y: e.clientY };
+        });
+
+        // Touch interactions
+        container.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        });
+
+        window.addEventListener('touchend', () => isDragging = false);
+
+        container.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const deltaMove = {
+                x: e.touches[0].clientX - previousMousePosition.x,
+                y: e.touches[0].clientY - previousMousePosition.y
+            };
+
+            boxGroup.rotation.y += deltaMove.x * 0.01;
+            boxGroup.rotation.x += deltaMove.y * 0.01;
+
+            previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        });
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (!isDragging) {
+                boxGroup.rotation.y += 0.005;
+                boxGroup.position.y = Math.sin(Date.now() * 0.002) * 0.08;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Responsive Resize Handler
+        window.addEventListener('resize', () => {
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+    </script>
+</body>
+</html>

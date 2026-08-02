@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1K579PQJE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P1K579PQJE');
+    </script>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HypeHaus - Jersey Details</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/pe-icon-7-stroke.min.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/aos.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Custom CSS for Dynamic Product Detail Page -->
+    <style>
+        .product-details-img img {
+            width: 100%;
+            max-height: 450px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid #e7e7e7;
+            background: #fff;
+        }
+        .thumbnail-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .thumbnail-images img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 5px;
+        }
+        .thumbnail-images img.active, .thumbnail-images img:hover {
+            border-color: #B12704;
+        }
+        .product-price-wrap .new {
+            font-size: 24px;
+            font-weight: bold;
+            color: #B12704;
+        }
+        .product-price-wrap .old {
+            font-size: 16px;
+            text-decoration: line-through;
+            color: #767676;
+            margin-left: 10px;
+        }
+        .size-selection {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .size-btn {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .size-btn.selected {
+            border-color: #111;
+            background: #111;
+            color: #fff;
+        }
+        .buy-now-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #ffd814;
+            border: 1px solid #fcd200;
+            border-radius: 4px;
+            color: #111;
+            padding: 12px 0;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(213,217,217,.5);
+            margin-top: 20px;
+        }
+        .buy-now-btn:hover {
+            background-color: #f7ca00;
+            color: #111;
+        }
+        /* SPIDER-MAN HANGING CORNER STYLES */
+        .spider-hanging-corner {
+            position: fixed;
+            top: 0;
+            right: 20px;
+            width: 110px;
+            height: 180px;
+            z-index: 99998;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .spider-string {
+            width: 2px;
+            height: 50px;
+            background: #ffffff;
+            opacity: 0.8;
+            box-shadow: 0 0 4px rgba(255,255,255,0.6);
+        }
+        .spider-image {
+            width: 90px;
+            height: auto;
+            object-fit: contain;
+            animation: spider-swing 3s ease-in-out infinite alternate;
+            transform-origin: top center;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.8));
+        }
+        @keyframes spider-swing {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spider-Man Hanging Element -->
+    <div class="spider-hanging-corner">
+        <div class="spider-string"></div>
+        <img src="assets/images/icons/image.png" alt="Spider-Man Hanging" class="spider-image" />
+    </div>
+
+    <header class="section header">
+        <div class="header-bottom">
+            <div class="header-sticky">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-xl-2 col-6">
+                            <div class="header-logo">
+                                <a href="index.html"><img src="assets/images/logo/Hypehaus (1).png" alt="Site Logo" style="max-height: 45px;" /></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 d-none d-xl-block">
+                            <div class="main-menu position-relative">
+                                <ul>
+                                    <li class="has-children"><a href="index.html"><span>Home</span></a></li>
+                                    <li class="has-children position-static">
+                                        <a href="#"><span>Shop</span> <i class="fa fa-angle-down"></i></a>
+                                        <ul class="mega-menu row-cols-4">
+                                            <li class="col">
+                                                <h4 class="mega-menu-title">Shop Layout</h4>
+                                                <ul class="mb-n2">
+                                                    <li><a href="Shoe.html">Shoes</a></li>
+                                                    <li><a href="Jersey.html">Jerseys</a></li>
+                                                    <li><a href="tshirt.html">T-Shirts</a></li> 
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-children"><a href="about.html"><span>About</span></a></li>
+                                    <li><a href="contact.html"><span>Contact</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-6 text-end">
+                            <div class="header-actions">
+                                <a href="javascript:void(0)" class="header-action-btn header-action-btn-menu d-xl-none">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Section Start -->
+    <div class="section">
+        <div class="breadcrumb-area bg-light">
+            <div class="container-fluid">
+                <div class="breadcrumb-content text-center">
+                    <h1 class="title">Product Details</h1>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Jersey.html">Jerseys</a></li>
+                        <li class="active" id="breadcrumb-title">Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Section Start -->
+    <div class="section section-margin">
+        <div class="container">
+            <div class="row">
+                <!-- Product Image Column -->
+                <div class="col-lg-6 col-offset-1 col-col-md-12">
+                    <div class="product-details-img">
+                        <img id="main-product-img" src="" alt="Product Image">
+                        <div class="thumbnail-images" id="thumbnail-container">
+                            <!-- Thumbnails populated via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Content Column -->
+                <div class="col-lg-6 col-md-12 mt-custom">
+                    <div class="product-conte">
+                        <h4 class="sub-title" id="product-subtitle" style="font-size: 12px; text-transform: uppercase; color: #767676;"></h4>
+                        <h2 class="title" id="product-title" style="font-size: 22px; font-weight: bold; margin-bottom: 15px;"></h2>
+                        
+                        <div class="product-price-wrap mb-4">
+                            <span class="new" id="product-new-price"></span>
+                            <span class="old" id="product-old-price"></span>
+                        </div>
+
+                        <div class="product-size mb-4">
+                            <label style="font-weight: bold; display: block; margin-bottom: 5px;">Select Size:</label>
+                            <div class="size-selection">
+                                <button class="size-btn selected" onclick="selectSize(this, 'S')">S</button>
+                                <button class="size-btn" onclick="selectSize(this, 'M')">M</button>
+                                <button class="size-btn" onclick="selectSize(this, 'L')">L</button>
+                                <button class="size-btn" onclick="selectSize(this, 'XL')">XL</button>
+                            </div>
+                        </div>
+
+                        <!-- Buy Now Button -->
+                        <a href="#" id="buy-now-link" class="buy-now-btn" target="_blank">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product Details Section End -->
+
+    <!-- Footer Section Start -->
+    <footer class="section footer-section">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center">
+                        <div class="copyright-content">
+                            <p class="mb-0">© 2026 Made with <i class="fa fa-heart text-danger"></i> by <a href="#">HypeHaus</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Dynamic Loader JavaScript -->
+    <script>
+        // Database of the 4 Jersey products
+        const productsData = {
+            "1": {
+                subtitle: "F1 Edition",
+                title: "MERCEDES AMG PETRONAS F1 2025 UNISEX REGULAR FIT POLO (BLACK)",
+                newPrice: "₹749",
+                oldPrice: "₹1349",
+                images: ["assets/images/jersey/j1.jpg", "assets/images/jersey/j2.jpg"],
+                checkoutProduct: "F1 MERCEDES PETRONAS BLACK POLO PREMIUM"
+            },
+            "2": {
+                subtitle: "SPECIAL EDITION",
+                title: "SCUDERIA FERRARI F1 UNISEX POLO T-SHIRT",
+                newPrice: "₹749",
+                oldPrice: "₹1349",
+                images: ["assets/images/jersey/j3.png", "assets/images/jersey/j4.png"],
+                checkoutProduct: "f1 ferrari scuderia red polo premium"
+            },
+            "3": {
+                subtitle: "RACING EDITION",
+                title: "CASTORE RED BULL RACING F1 UNISEX POLO T-SHIRT",
+                newPrice: "₹1199",
+                oldPrice: "₹1349",
+                images: ["assets/images/jersey/j5.webp", "assets/images/jersey/j6.jpg"],
+                checkoutProduct: "F1 RED BULL RACING TEAM BLUE JERSEY"
+            },
+            "4": {
+                subtitle: "F1 Edition",
+                title: "MERCEDES AMG PETRONAS F1 2025",
+                newPrice: "₹1199",
+                oldPrice: "₹1499",
+                images: ["assets/images/jersey/j7.webp", "assets/images/jersey/j8.webp"],
+                checkoutProduct: "MERCEDES AMG PETRONAS F1 2025"
+            }
+        };
+
+        // Get product ID from URL query parameters (e.g., jersey-product.html?id=1)
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id') || "1"; // Default to product 1 if none specified
+
+        const product = productsData[productId] || productsData["1"];
+
+        // Populate elements dynamically
+        document.getElementById('product-subtitle').innerText = product.subtitle;
+        document.getElementById('product-title').innerText = product.title;
+        document.getElementById('breadcrumb-title').innerText = product.title;
+        document.getElementById('product-new-price').innerText = product.newPrice;
+        document.getElementById('product-old-price').innerText = product.oldPrice;
+        document.getElementById('buy-now-link').href = `checkout.html?product=${encodeURIComponent(product.checkoutProduct)}`;
+
+        // Set Main Image
+        const mainImg = document.getElementById('main-product-img');
+        mainImg.src = product.images[0];
+
+        // Populate Thumbnails
+        const thumbContainer = document.getElementById('thumbnail-container');
+        product.images.forEach((imgSrc, index) => {
+            const thumb = document.createElement('img');
+            thumb.src = imgSrc;
+            if (index === 0) thumb.classList.add('active');
+            thumb.onclick = function() {
+                mainImg.src = imgSrc;
+                document.querySelectorAll('.thumbnail-images img').forEach(i => i.classList.remove('active'));
+                thumb.classList.add('active');
+            };
+            thumbContainer.appendChild(thumb);
+        });
+
+        // Size selector function
+        function selectSize(element, size) {
+            document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+    </script>
+
+    <!-- Vendor & Plugins JS -->
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/plugins/aos.min.js"></script>
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/nice-select.min.js"></script>
+    <script src="assets/js/plugins/jquery-ui.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

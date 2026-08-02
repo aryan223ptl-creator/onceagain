@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">Product Details - HypeHaus</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/pe-icon-7-stroke.min.css">
+    
+    <!-- Plugins CSS Needed for Index Header/Mobile Menu -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/aos.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap');
+
+        .hype-container {
+          background-color: #000;
+          color: #fff;
+          padding: 12px 0;
+          overflow: hidden;
+          width: 100%;
+          cursor: pointer;
+          transition: background-color 0.2s ease, color 0.2s ease;
+          border-top: 2px solid #fff;
+          border-bottom: 2px solid #fff;
+        }
+
+        .hype-container:hover {
+          background-color: #fff;
+          color: #000;
+          border-top: 2px solid #000;
+          border-bottom: 2px solid #000;
+        }
+
+        .marquee-track {
+          display: flex;
+          width: max-content;
+        }
+
+        .marquee-content {
+          display: flex;
+          white-space: nowrap;
+          animation: warp-scroll 12s linear infinite;
+        }
+
+        .marquee-content span {
+          font-family: 'Syncopate', sans-serif;
+          font-size: 1.25rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          padding-right: 40px;
+        }
+
+        @keyframes warp-scroll {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+
+        .header-logo-img {
+          width: 100%;
+          max-width: 220px; 
+          height: auto;
+          max-height: 80px; 
+          object-fit: contain;
+          display: block;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #111;
+        }
+        .product-detail-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eaeaea;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .main-product-img {
+            max-height: 450px;
+            width: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            background-color: #fdfdfd;
+            margin-bottom: 15px;
+        }
+        .thumbnail-container {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .thumb-img {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .thumb-img:hover, .thumb-img.active {
+            border-color: #111;
+            transform: translateY(-2px);
+        }
+        .price-box {
+            font-size: 28px;
+            color: #111;
+            font-weight: 700;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .old-price {
+            font-size: 18px;
+            color: #888;
+            text-decoration: line-through;
+            font-weight: 400;
+        }
+        .discount-badge {
+            font-size: 13px;
+            background-color: #e63946;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .size-btn {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #ddd;
+            margin-right: 8px;
+            margin-top: 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .size-btn:hover, .size-btn.active {
+            background-color: #000;
+            color: #fff;
+            border-color: #000;
+        }
+        .buy-btn {
+            background-color: #000;
+            color: #fff;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 6px;
+            width: 100%;
+            text-align: center;
+            display: block;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+        .buy-btn:hover {
+            background-color: #333;
+            color: #fff;
+        }
+        .info-section-card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #eaeaea;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .info-tabs {
+            border-bottom: 2px solid #eee;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 30px;
+        }
+        .info-tab-link {
+            font-weight: 600;
+            font-size: 16px;
+            color: #666;
+            padding-bottom: 10px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: color 0.2s;
+        }
+        .info-tab-link.active {
+            color: #000;
+            border-bottom-color: #000;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .policy-list {
+            padding-left: 20px;
+        }
+        .policy-list li {
+            margin-bottom: 8px;
+            color: #444;
+        }
+    </style>
+</head>
+
+<body>
+    
+
+        <div class="hype-container">
+          <div class="marquee-track">
+            <div class="marquee-content">
+              <span>HYPEHAUS // T-SHIRT //&nbsp;</span>
+              <span>HYPEHAUS // T-SHIRT //&nbsp;</span>
+              <span>HYPEHAUS // T-SHIRT //&nbsp;</span>
+              <span>HYPEHAUS // T-SHIRT //&nbsp;</span>
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+              <span>HYPEHAUS // T-SHIRT //&nbsp;</span>
+              <span>HYPEHAUS // T-SHIRT //&nbsp;</span>
+              <span>HYPEHAUS // T-SHIRT //&nbsp;</span>
+              <span>HYPEHAUS // T-SHIRT //&nbsp;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Header Bottom Start -->
+        <div class="header-bottom">
+            <div class="header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-3 col-6">
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <img class="header-logo-img" src="assets/images/logo/Hypehaus4k.png" alt="Site Logo" />
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+
+                        <!-- Header Menu Start -->
+                        <div class="col-xl-7 d-none d-xl-block">
+                            <div class="main-menu position-relative">
+                                <ul>
+                                    <li class="has-children">
+                                        <a href="index.html"><span>Home</span></a>
+                                    </li>
+                                    <li class="has-children position-static">
+                                        <a href="#"><span>Shop</span> <i class="fa fa-angle-down"></i></a>
+                                        <ul class="mega-menu row-cols-4">
+                                            <li class="col">
+                                                <h4 class="mega-menu-title">Shop Layout</h4>
+                                                <ul class="mb-n2">
+                                                   <li><a href="Shoe.html">Shoes</a></li>
+                                     <li><a href="Jersey.html">Jerseys</a></li>
+                                     <li><a href="tshirt.html">T-Shirts</a></li> 
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="about.html"><span>About</span> </a>
+                                    </li>
+                                    
+                                    <li><a href="contact.html"> <span>Contact</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Header Menu End -->
+
+                        <!-- Header Action Start -->
+                        <div class="col-xl-2 col-6">
+                            <div class="header-actions justify-content-end">
+                                <a href="javascript:void(0)" class="header-action-btn header-action-btn-menu d-xl-none d-lg-block">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Action End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Bottom End -->
+
+        <!-- Mobile Menu Start -->
+        <div class="mobile-menu-wrapper">
+            <div class="offcanvas-overlay"></div>
+            <div class="mobile-menu-inner">
+                <div class="offcanvas-btn-close">
+                    <i class="pe-7s-close"></i>
+                </div>
+                
+                <div class="mobile-navigation">
+                    <nav>
+                        <ul class="mobile-menu">
+                            <li class="has-children"><a href="index.html">Home </a></li>
+                            <li class="has-children">
+                                <a href="#">Shop <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul class="dropdown">
+                                     <li><a href="Shoe.html">Shoes</a></li>
+                                     <li><a href="Jersey.html">Jerseys</a></li>
+                                     <li><a href="tshirt.html">T-Shirts</a></li>                               
+                                </ul>
+                            </li>
+                            <li class="has-children"><a href="about.html">About </a></li>
+                            <li class="has-children"><a href="checkout.html">Checkout </a></li>
+                            
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="mt-auto">
+                    <ul class="contact-links">
+                        <li><i class="fa fa-phone"></i><a href="#"> +91 97249 57688</a></li>
+                        <li><i class="fa fa-envelope-o"></i><a href="#"> hypehaus.gmail.com</a></li>
+                        <li><i class="fa fa-clock-o"></i> <span>Monday - Sunday 9.00 - 09.00</span> </li>
+                    </ul>
+                    <div class="widget-social">
+                        <a title="Instagram" href="https://www.instagram.com/hypehaus.store/"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu End -->
+
+        <!-- Offcanvas Search Start -->
+        <div class="offcanvas-search">
+            <div class="offcanvas-search-inner">
+                <div class="offcanvas-btn-close">
+                    <i class="pe-7s-close"></i>
+                </div>
+                <form class="offcanvas-search-form" action="#">
+                    <input type="text" placeholder="Search Here..." class="offcanvas-search-input">
+                </form>
+            </div>
+        </div>
+        <!-- Offcanvas Search End -->
+    </div>
+
+    <!-- Product Details Section -->
+    <div class="container">
+        <div class="product-detail-card">
+            <div class="row align-items-center">
+                <!-- Product Images Area -->
+                <div class="col-md-6 mb-4 mb-md-0 text-center">
+                    <img id="main-product-img" src="" alt="T-shirt Main" class="main-product-img">
+                    <div id="thumbnail-box" class="thumbnail-container"></div>
+                </div>
+
+                <!-- Product Details Info -->
+                <div class="col-md-6 ps-md-4">
+                    <span id="tshirt-category" class="badge bg-dark mb-2" style="font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">CATEGORY</span>
+                    <h2 id="tshirt-title" style="font-size: 28px; font-weight: 700; color: #111;">Loading...</h2>
+                    
+                    <div class="price-box">
+                        <span id="tshirt-price">₹0</span>
+                        <span id="tshirt-old-price" class="old-price">₹0</span>
+                    </div>
+
+                    <p id="tshirt-desc" class="text-muted mb-4" style="line-height: 1.6;">Loading product description...</p>
+
+                    <div class="mb-4">
+                        <label class="d-block fw-bold mb-2 text-dark" style="font-size: 14px;">SELECT SIZE:</label>
+                        <div id="size-options">
+                            <!-- Sizes dynamically generated via script -->
+                        </div>
+                    </div>
+
+                    <!-- Buy Action Button -->
+                    <div class="cart-wishlist-btn mb-3">
+                        <a id="buy-now-btn" href="checkout.html" class="buy-btn">
+                            Proceed to Checkout
+                        </a>
+                    </div>
+                    <div class="text-muted" style="font-size: 13px;">
+                        <i class="fa fa-shield-alt me-1"></i> 100% Secure Checkout | 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Information Tabs -->
+        <div class="info-section-card">
+            <div class="info-tabs">
+                <div class="info-tab-link active" onclick="switchTab(event, 'specs-tab')">Product Specifications</div>
+                <div class="info-tab-link" onclick="switchTab(event, 'shipping-tab')">Shipping & Delivery</div>
+                <div class="info-tab-link" onclick="switchTab(event, 'returns-tab')">Returns & Exchange</div>
+            </div>
+
+            <!-- Tab 1: Specs -->
+            <div id="specs-tab" class="tab-pane active">
+                <h5 class="fw-bold mb-3">Detailed Specifications</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped table-borderless" style="font-size: 14px;">
+                            <tr>
+                                <td class="fw-bold text-muted">Fabric:</td>
+                                <td id="spec-material">100% Super Combed Cotton</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-muted">GSM:</td>
+                                <td id="spec-gsm">240 GSM Heavyweight</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-muted">Fit Type:</td>
+                                <td id="spec-fit">Oversized / Boxy Fit</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped table-borderless" style="font-size: 14px;">
+                            <tr>
+                                <td class="fw-bold text-muted">Neckline:</td>
+                                <td>Ribbed Crew Neck</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-muted">Wash Care:</td>
+                                <td>Machine wash cold, do not iron on print</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-muted">Country of Origin:</td>
+                                <td>India</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Shipping -->
+            <div id="shipping-tab" class="tab-pane">
+                <h5 class="fw-bold mb-3">Shipping Policy</h5>
+                <ul class="policy-list">
+                    <li><strong>Processing Time:</strong> Orders are processed and dispatched within 24 to 48 hours.</li>
+                    <li><strong>Delivery Timeline:</strong> Standard delivery takes 7-10 business days across major metro cities, and 5-7 business days for the rest of India.</li>
+                    <li><strong>Shipping Charges:</strong> Free shipping is available on all prepaid orders.</li>
+                </ul>
+            </div>
+
+            <!-- Tab 3: Returns -->
+            <div id="returns-tab" class="tab-pane">
+                <h5 class="fw-bold mb-3">Returns & Exchange Policy</h5>
+                <ul class="policy-list">
+                    <li><strong>Easy 4-Day Window:</strong> We offer a hassle-free 4-day return and exchange policy starting from the date of delivery.</li>
+                    <li><strong>Condition:</strong> Items must be unwashed, unworn, undamaged, and retain all original tags.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section from Index -->
+    <footer class="section footer-section">
+        <div class="footer-top section-padding">
+            <div class="container">
+                <div class="row mb-n10">
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-4 mb-10" data-aos="fade-up" data-aos-delay="200">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Contact Us</h2>
+                            <ul class="widget-address">
+                                <li><span>Address: </span>INDIA, Gujarat</li>
+                                <li><span>Call to: </span> <a href="#"> +91 97249 57688</a></li>
+                                <li><span>Mail to: </span> <a href="#"> hypehaus.gmail.com</a></li>
+                            </ul>
+                            <div class="widget-social justify-content-start mt-4">
+                                <a title="Instagram" href="https://www.instagram.com/hypehaus.store/"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-2 col-xl-2 mb-10" data-aos="fade-up" data-aos-delay="300">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Information</h2>
+                            <ul class="widget-list">
+                                 <li><a href="about.html">About Us</a></li>
+                                <li><a href="Delivery Information.html">Delivery Information</a></li>
+                                <li><a href="terms_and_return_policy.html">Privacy Policy</a></li>
+                                <li><a href="terms_and_return_policy.html">Terms & Conditions</a></li>
+                                <li><a href="terms_and_return_policy.html">Customer Service</a></li>
+                                <li><a href="terms_and_return_policy.html">Return Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-4 mb-10" data-aos="fade-up" data-aos-delay="500">
+                        <div class="single-footer-widget">
+                            <div class="widget-body">
+                                <div class="newsletter-form-wrap pt-4">
+                                    <form action="https://formsubmit.co/aryan223ptl@gmail.com" method="POST" id="mc-form" class="mc-form">
+                                        <input type="hidden" name="_captcha" value="false">
+                                        <input type="email" id="mc-email" class="form-control email-box mb-4" placeholder="Enter your email here.." name="email" required>
+                                        <button id="mc-submit" class="newsletter-btn btn btn-primary btn-hover-dark" type="submit">Subscribe</button>
+                                    </form>
+                                    <div class="mailchimp-alerts text-centre mt-2">
+                                        <div id="subscription-status"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center">
+                        <div class="copyright-content">
+                            <p class="mb-0">©2026 Made with <i class="fa fa-heart text-danger"></i> by <a href="#">HypeHaus</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vendors JS -->
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
+    <!-- Plugins JS -->
+    <script src="assets/js/plugins/countdown.min.js"></script>
+    <script src="assets/js/plugins/aos.min.js"></script>
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/nice-select.min.js"></script>
+    <script src="assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/plugins/jquery-ui.min.js"></script>
+    <script src="assets/js/plugins/lightgallery-all.min.js"></script>
+    <script src="assets/js/plugins/thia-sticky-sidebar.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <!-- JavaScript to Handle Dynamic Data, Unique Descriptions, Size Availability, and Clean Checkout Links -->
+    <script>
+        // Tab switching logic
+        function switchTab(evt, tabId) {
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+            document.querySelectorAll('.info-tab-link').forEach(link => link.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Database containing unique descriptions and size statuses ('available' or 'soldout')
+        const productsData = {
+            1: {
+                category: "Oversized Tee",
+                title: "Premium Five Sleeve Tshirt",
+                price: "₹999",
+                oldPrice: "₹1499",
+                images: ["assets/images/tshirt/t1.webp", "assets/images/tshirt/t1.1.webp", "assets/images/tshirt/t1.2.webp"],
+                desc: "This dark grey t-shirt features a comfortable, loose fit with the word \"CULTURE\" printed across the chest. It also has subtle flame designs at the bottom and small metal rings on the collar for a cool streetwear look.",
+                material: "100% Super Combed Cotton",
+                gsm: "240 GSM Heavyweight",
+                fit: "Oversized / Boxy Drop-Shoulder",
+                sizes: { S: "soldout", M: "available", L: "soldout", XL: "soldout" }
+            },
+            2: {
+                category: "Streetwear",
+                title: "Premium Balenciaga Five Sleeve Tshirt",
+                price: "₹999",
+                oldPrice: "₹1599",
+                images: ["assets/images/tshirt/t2.webp", "assets/images/tshirt/t2.1.webp"],
+                desc: "This bright blue t-shirt features a relaxed fit with classic black and white stripes running down the shoulders. It is finished with a small minimalist logo printed right in the center of the chest for a clean, sporty look.",
+                material: "Cotton-Poly Blended Acid Wash",
+                gsm: "220 GSM",
+                fit: "Vintage Relaxed Boxy Fit",
+                sizes: { S: "available", M: "available", L: "soldout", XL: "soldout" }
+            },
+            3: {
+                category: "Graphic Tee",
+                title: "Premium Essentials Full Sleeve T-shirt",
+                price: "₹999",
+                oldPrice: "₹1299",
+                images: ["assets/images/tshirt/t3.webp", "assets/images/tshirt/t3.1.webp", "assets/images/tshirt/t3.2.webp"],
+                desc: "High density screen print back graphics. Clean white baseline streetwear look built for day-long comfort.",
+                material: "100% Ringspun Cotton",
+                gsm: "210 GSM",
+                fit: "Regular Street Fit",
+                sizes: { S: "soldout", M: "soldout", L: "available", XL: "available" }
+            },
+            4: { 
+                category: "Streetwear", 
+                title: "F1 Five Sleeve Tshirt", 
+                price: "₹949", 
+                oldPrice: "₹1399", 
+                images: ["assets/images/tshirt/t4.webp", "assets/images/tshirt/t4.1.webp"], 
+                desc: "This dark washed t-shirt features a small white F1 logo on the chest for a clean look. The back shows off a fun racing design with a bold \"do not disturb\" message.", 
+                material: "100% Cotton", 
+                gsm: "230 GSM", 
+                fit: "Oversized Drop-Shoulder",
+                sizes: { S: "soldout", M: "available", L: "soldout", XL: "soldout" }
+            },
+            5: { 
+                category: "Boxy Fit", 
+                title: "PORSCHE 911 GT3 RS Premium Five Sleeve Tshirt", 
+                price: "₹999", 
+                oldPrice: "₹1499", 
+                images: ["assets/images/tshirt/t5.webp", "assets/images/tshirt/t5.1.webp"], 
+                desc: "This comfortable black t-shirt features a loose, oversized fit with simple text on the front reading \"PORSCHE 911 GT3 RS\". The back showcases a large, colorful graphic of a red sports car alongside detailed automotive text.", 
+                material: "Heavy Combed Cotton", 
+                gsm: "240 GSM", 
+                fit: "Boxy Fit",
+                sizes: { S: "soldout", M: "available", L: "soldout", XL: "soldout" }
+            },
+            6: { 
+                category: "Cyberpunk", 
+                title: "Strike Master Full Sleeve Tshirts", 
+                price: "₹1199", 
+                oldPrice: "₹1799", 
+                images: ["assets/images/tshirt/t6.webp", "assets/images/tshirt/t6.1.webp"], 
+                desc: "Ready to break the mold. Heavy metal graphics paired with a washed finish to anchor the daily rotation. Loud enough to make a statement, clean enough to keep them guessing. ⚡⛓️", 
+                material: "100% Premium Cotton", 
+                gsm: "250 GSM", 
+                fit: "Oversized Fit",
+                sizes: { S: "soldout", M: "available", L: "soldout", XL: "soldout" }
+            },
+            7: { 
+                category: "Minimalist", 
+                title: "Langærmede t-shirts Rammstein | Vinted", 
+                price: "₹1199", 
+                oldPrice: "₹1199", 
+                images: ["assets/images/tshirt/t7.webp", "assets/images/tshirt/t7.1.webp"], 
+                desc: "This bright blue long-sleeve t-shirt features a cool graphic print of a band on the front and white text running down the sleeve. It has a comfortable, relaxed fit that makes it perfect for everyday casual wear.", 
+                material: "Organic Cotton Blend", 
+                gsm: "200 GSM", 
+                fit: "Relaxed Fit",
+                sizes: { S: "available", M: "available", L: "available", XL: "soldout" }
+            },
+            8: { 
+                category: "Racer Style", 
+                title: "Racer F1 Black Sport Tee", 
+                price: "₹1049", 
+                oldPrice: "₹1499", 
+                images: ["assets/images/tshirt/t8.webp", "assets/images/tshirt/t8.1.webp" , "assets/images/tshirt/t8.2.webp"], 
+                desc: "This casual black t-shirt features a sporty design with bright neon green piping details along the shoulders and sides. It is styled with a prominent Formula 1 logo on the chest, making it perfect for motorsport fans who love a cool, relaxed look.", 
+                material: "100% Combed Cotton", 
+                gsm: "220 GSM", 
+                fit: "Regular Fit",
+                sizes: { S: "soldout", M: "available", L: "available", XL: "soldout" }
+            },
+            9: { 
+                category: "Tie-Dye", 
+                title: "Hope Premium Five Sleeve Tshirt", 
+                price: "₹1099", 
+                oldPrice: "₹1899", 
+                images: ["assets/images/tshirt/t9.webp", "assets/images/tshirt/t9.1.jpg", "assets/images/tshirt/t9.2.jpg"], 
+                desc: "this is a vibrant red long-sleeve t-shirt featuring a comfortable, relaxed fit and a classic crew neck. It is designed with the small white word \"HOPE\" printed cleanly right in the center of the chest.", 
+                material: "100% Cotton", 
+                gsm: "230 GSM", 
+                fit: "Oversized Boxy",
+                sizes: { S: "soldout", M: "available", L: "soldout", XL: "soldout" }
+            },
+            10: { 
+                category: "Oversized", 
+                title: "Formula 1Premium Five Sleeve Tshirt", 
+                price: "₹999", 
+                oldPrice: "₹1499", 
+                images: ["assets/images/tshirt/t10.webp", "assets/images/tshirt/t10.1.webp"], 
+                desc: "This short-sleeve t-shirt features a bold red body with sporty black sleeves and contrast shoulder stripes. Its loose fit makes it comfortable and perfect for a cool, casual look.", 
+                material: "Heavyweight Cotton", 
+                gsm: "240 GSM", 
+                fit: "Drop-Shoulder Boxy",
+                sizes: { S: "soldout", M: "soldout", L: "available", XL: "available" }
+            },
+            11: { 
+                category: "Acid Wash", 
+                title: "Premium Balenciaga Green Five Sleeve Tshirt", 
+                price: "₹1099", 
+                oldPrice: "₹1599", 
+                images: ["assets/images/tshirt/t11.webp", "assets/images/tshirt/t11.1.webp"], 
+                desc: "Dark charcoal stone-washed retro rockstar aesthetic tee.", 
+                material: "Cotton Wash Blend", 
+                gsm: "230 GSM", 
+                fit: "Vintage Oversized",
+                sizes: { S: "soldout", M: "available", L: "soldout", XL: "available" }
+            },
+            12: { 
+                category: "Graffiti Art", 
+                title: "Shelby Premium Five Sleeve Tshirt", 
+                price: "₹999", 
+                oldPrice: "₹1699", 
+                images: ["assets/images/tshirt/t12.webp", "assets/images/tshirt/t12.1.webp"], 
+                desc: "This black t-shirt features a classic Mustang logo on the chest and large blue lettering down the side. The back displays bold blue racing stripes and a cool sports car graphic.", 
+                material: "100% Ringspun Cotton", 
+                gsm: "240 GSM", 
+                fit: "Oversized Boxy",
+                sizes: { S: "available", M: "available", L: "available", XL: "soldout" }
+            }
+        };
+
+        // Parse query params & render details
+        const params = new URLSearchParams(window.location.search);
+        const selectedId = params.get('id');
+
+        if (selectedId && productsData[selectedId]) {
+            const item = productsData[selectedId];
+
+            document.getElementById('tshirt-title').innerText = item.title;
+            document.getElementById('tshirt-category').innerText = item.category;
+            document.getElementById('tshirt-price').innerText = item.price;
+            document.getElementById('tshirt-old-price').innerText = item.oldPrice;
+            document.getElementById('tshirt-desc').innerText = item.desc;
+            document.getElementById('page-title').innerText = item.title + " - HypeHaus";
+
+            // Render specs data dynamically
+            if(item.material) document.getElementById('spec-material').innerText = item.material;
+            if(item.gsm) document.getElementById('spec-gsm').innerText = item.gsm;
+            if(item.fit) document.getElementById('spec-fit').innerText = item.fit;
+
+            // Checkout link will ONLY send the product name (Size parameter is deliberately excluded)
+            document.getElementById('buy-now-btn').href = `checkout.html?product=${encodeURIComponent(item.title)}`;
+
+            // Render Dynamic Sizes & Availability Status
+            const sizeOptionsContainer = document.getElementById('size-options');
+            sizeOptionsContainer.innerHTML = ''; 
+
+            const sizeKeys = ['S', 'M', 'L', 'XL'];
+            let firstAvailableSet = false;
+
+            sizeKeys.forEach(size => {
+                const status = item.sizes[size] || 'available'; 
+                const span = document.createElement('span');
+                span.className = 'size-btn';
+                span.innerText = size;
+
+                if (status === 'soldout') {
+                    span.classList.add('sold-out');
+                    span.style.opacity = '0.4';
+                    span.style.textDecoration = 'line-through';
+                    span.style.cursor = 'not-allowed';
+                    span.title = 'Size Sold Out';
+                } else {
+                    if (!firstAvailableSet) {
+                        span.classList.add('active');
+                        firstAvailableSet = true;
+                    }
+                    span.addEventListener('click', () => {
+                        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                        span.classList.add('active');
+                    });
+                }
+
+                sizeOptionsContainer.appendChild(span);
+            });
+
+            // Images Handling
+            const mainImg = document.getElementById('main-product-img');
+            const thumbBox = document.getElementById('thumbnail-box');
+            thumbBox.innerHTML = '';
+
+            mainImg.src = item.images[0];
+
+            item.images.forEach((imgPath, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = imgPath;
+                thumb.className = "thumb-img" + (index === 0 ? " active" : "");
+                
+                thumb.addEventListener('click', () => {
+                    mainImg.src = imgPath;
+                    document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+
+                thumbBox.appendChild(thumb);
+            });
+        } else {
+            document.querySelector('.product-detail-card').innerHTML = `
+                <div class="text-center py-5">
+                    <h3 class="text-danger fw-bold">Product Not Found!</h3>
+                    <p class="text-muted">The product you are looking for might be unavailable or removed.</p>
+                    <a href="index.html" class="btn btn-dark mt-3">Back to Homepage</a>
+                </div>`;
+        }
+    </script>
+</body>
+</html>

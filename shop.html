@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DROP // 3D VAULT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030305;
+            --neon-green: #00ff66;
+            --neon-pink: #ff0055;
+            --neon-cyan: #00f0ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            perspective: 1200px;
+        }
+
+        /* Cyberpunk Grid Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+        }
+
+        /* Top Header Navigation */
+        .top-header {
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(3, 3, 5, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.4));
+        }
+
+        .logo-text {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #8a8a93;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        /* Main Content Wrapper */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1rem;
+            width: 100%;
+        }
+
+        /* 3D Floating Title Container */
+        .header-container {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            transform-style: preserve-3d;
+            animation: floatHeader 4s ease-in-out infinite;
+        }
+
+        @keyframes floatHeader {
+            0%, 100% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-15px) rotateX(5deg); }
+        }
+
+        .dropping-soon-3d {
+            font-family: 'Clash Display', sans-serif;
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 0.9;
+            color: #fff;
+            transform-style: preserve-3d;
+            position: relative;
+            text-shadow: 
+                0 1px 0 #ccc,
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b2b2b2,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,240,255,0.3),
+                0 0 15px rgba(0,240,255,0.4),
+                0 0 30px rgba(0,240,255,0.5),
+                0 0 50px rgba(0,240,255,0.6);
+            animation: colorShift 6s infinite alternate;
+        }
+
+        @keyframes colorShift {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .sub-text {
+            font-size: 1rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+            margin-top: 1rem;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        /* 3D Card Stage */
+        .vault-stage {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1200px;
+            width: 90%;
+            transform-style: preserve-3d;
+        }
+
+        .card-3d {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transform: translateZ(30px);
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .card-3d:hover {
+            transform: translateZ(70px) rotateX(8deg) rotateY(-8deg);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 30px 60px rgba(0, 240, 255, 0.2);
+        }
+
+        .img-container {
+            height: 350px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(40%) contrast(120%);
+            transition: transform 0.6s ease;
+        }
+
+        .card-3d:hover .img-container img {
+            transform: scale(1.1) translateZ(20px);
+            filter: grayscale(0%);
+        }
+
+        .card-info {
+            padding: 1.5rem;
+            transform: translateZ(25px);
+        }
+
+        .item-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--neon-pink);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .item-name {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .item-desc {
+            font-size: 0.9rem;
+            color: #8a8a93;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        /* Glitchy Notify Button */
+        .notify-btn {
+            width: 100%;
+            background: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 0.8rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .notify-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--neon-cyan);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+
+        .notify-btn:hover {
+            color: var(--bg);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        .notify-btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Popup Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(3, 3, 5, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+            border: 1px solid var(--neon-cyan);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-title {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+
+        .modal-text {
+            font-size: 0.95rem;
+            color: #8a8a93;
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .modal-close-btn {
+            background: var(--neon-cyan);
+            border: none;
+            color: var(--bg);
+            padding: 0.75rem 2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .modal-close-btn:hover {
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        @media (max-width: 900px) {
+            .vault-stage {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            .nav-links {
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Header with Logo & Navigation -->
+    <header class="top-header">
+        <a href="index.html" class="logo-container">
+            <img src="assets/images/logo/hypehaus4k.png" alt="Brand Logo">
+            <span class="logo-text">HYPEHAUS</span>
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="header-container">
+            <h1 class="dropping-soon-3d">Dropping Soon</h1>
+            <div class="sub-text">[ Secure Your Access Point ]</div>
+        </div>
+
+        <div class="vault-stage">
+            <!-- Baggy Jeans -->
+            <div class="card-3d">
+                <div class="img-container">
+                    <img src="assets/images/icons/jeans.png" alt="Baggy Jeans">
+                </div>
+                <div class="card-info">
+                    <div class="item-tag">Denim Division</div>
+                    <div class="item-name">Cyber Baggy Jeans</div>
+                    <p class="item-desc">Heavyweight 16oz indigo wash with extreme floor-pooling stack and utility hardware loops.</p>
+                    <button class="notify-btn">Notify Me</button>
+                </div>
+            </div>
+
+            <!-- Boxy Shirt -->
+            <div class="card-3d">
+                <div class="img-container">
+                    <img src="assets/images/icons/Shirt.png" alt="Boxy Shirt">
+                </div>
+                <div class="card-info">
+                    <div class="item-tag">Upper Architecture</div>
+                    <div class="item-name">Structured Boxy Shirt</div>
+                    <p class="item-desc">Sharp structured collar with an ultra-wide cropped silhouette engineered in heavy poplin.</p>
+                    <button class="notify-btn">Notify Me</button>
+                </div>
+            </div>
+
+            <!-- Oversized T-Shirt -->
+            <div class="card-3d">
+                <div class="img-container">
+                    <img src="assets/images/icons/tshirt.png" alt="Oversized T-Shirt">
+                </div>
+                <div class="card-info">
+                    <div class="item-tag">Essentials Core</div>
+                    <div class="item-name">Void Oversized Tee</div>
+                    <p class="item-desc">240GSM luxury combed cotton, dropped shoulders, and acid-washed vintage distressing.</p>
+                    <button class="notify-btn">Notify Me</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Popup Modal Component -->
+    <div class="modal-overlay" id="notifyModal">
+        <div class="modal-content">
+            <div class="modal-title">Success</div>
+            <p class="modal-text">You will be notified when this item drops.</p>
+            <button class="modal-close-btn" id="closeModalBtn">Got It</button>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle popup interaction -->
+    <script>
+        const notifyBtns = document.querySelectorAll('.notify-btn');
+        const modal = document.getElementById('notifyModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        // Open modal when any "Notify Me" button is clicked
+        notifyBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.classList.add('active');
+            });
+        });
+
+        // Close modal when "Got It" button is clicked
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        // Close modal when clicking outside the modal content box
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>

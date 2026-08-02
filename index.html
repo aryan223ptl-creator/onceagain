@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1K579PQJE"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-P1K579PQJE');
+    </script>
+	
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HypeHaus - Fashion ecommerce</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
+    <!-- Vendor CSS (Icon Font) -->
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/pe-icon-7-stroke.min.css">
+
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/aos.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+    .promo-banner{width:100%;background:#000;padding:20px 0}
+    .promo-banner img{display:block;margin:auto;max-width:1600px;width:100%;height:700px;object-fit:contain;background:#000}
+    @media(max-width:992px){.promo-banner img{height:550px}}
+    @media(max-width:768px){.promo-banner img{height:auto}}
+
+    @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap');
+
+    .hype-container {
+      background-color: #000;
+      color: #fff;
+      padding: 12px 0;
+      overflow: hidden;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      border-top: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+    }
+
+    .hype-container:hover {
+      background-color: #fff;
+      color: #000;
+      border-top: 2px solid #000;
+      border-bottom: 2px solid #000;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+    }
+
+    .marquee-content {
+      display: flex;
+      white-space: nowrap;
+      animation: warp-scroll 12s linear infinite;
+    }
+
+    .marquee-content span {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding-right: 40px;
+    }
+
+    @keyframes warp-scroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* RESPONSIVE LOGO OPTIMIZATIONS */
+    .header-logo-img {
+      width: 100%;
+      max-width: 220px; 
+      height: auto;
+      max-height: 80px; 
+      object-fit: contain;
+      display: block;
+    }
+
+    /* DESKTOP HERO SLIDER FIX */
+    .hero-slide-bg {
+      width: 100%;
+      height: 66.66vw;
+      max-height: 700px;
+      min-height: 450px;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .hero-slide-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      margin: auto;
+    }
+
+    /* Tablet & Mobile Adjustments */
+    @media (max-width: 991px) {
+      .hero-slide-bg {
+        height: 50vh;
+        min-height: 350px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .header-logo-img {
+        max-height: 60px; 
+        max-width: 160px;
+      }
+      .hero-slide-bg {
+        height: 40vh;
+        min-height: 250px;
+      }
+      .product-carousel .product {
+        max-width: 250px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center;
+      }
+      .product-carousel .product .thumb {
+        margin: 0 auto;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .video-container video, 
+      .banner-video {
+        object-fit: contain !important;
+        height: auto !important;
+        max-height: 80vh;
+      }
+    }
+
+    /* Floating Compact Music Widget */
+    .music-widget {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid #fff;
+      border-radius: 40px;
+      padding: 8px 16px 8px 8px;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .music-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #fff;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .music-widget.playing .music-btn {
+      background: #00ff66;
+      box-shadow: 0 0 10px #00ff66;
+    }
+
+    .music-title {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .sound-wave {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+    }
+
+    .sound-wave span {
+      width: 2px;
+      height: 100%;
+      background: #00ff66;
+      transform-origin: bottom;
+      animation: sound-bounce 1s ease-in-out infinite alternate;
+      animation-play-state: paused;
+    }
+
+    .music-widget.playing .sound-wave span { animation-play-state: running; }
+    .sound-wave span:nth-child(2) { animation-delay: 0.2s; }
+    .sound-wave span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes sound-bounce {
+      0% { transform: scaleY(0.2); }
+      100% { transform: scaleY(1); }
+    }
+
+    /* SPIDER-MAN HANGING CORNER STYLES */
+    .spider-hanging-corner {
+      position: fixed;
+      top: 0;
+      right: 20px;
+      width: 110px;
+      height: 180px;
+      z-index: 99998;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .spider-string {
+      width: 2px;
+      height: 50px;
+      background: #ffffff;
+      opacity: 0.8;
+      box-shadow: 0 0 4px rgba(255,255,255,0.6);
+    }
+    .spider-image {
+      width: 90px;
+      height: auto;
+      object-fit: contain;
+      animation: spider-swing 3s ease-in-out infinite alternate;
+      transform-origin: top center;
+      filter: drop-shadow(0 5px 10px rgba(0,0,0,0.8));
+    }
+    @keyframes spider-swing {
+      0% { transform: rotate(-5deg); }
+      100% { transform: rotate(5deg); }
+    }
+    @media (max-width: 768px) {
+      .spider-hanging-corner {
+        width: 80px;
+        height: 140px;
+        right: 10px;
+      }
+      .spider-string {
+        height: 35px;
+      }
+      .spider-image {
+        width: 65px;
+      }
+    }
+
+    /* CATEGORIES SECTION STYLING */
+    .categories-section {
+        padding: 50px 0;
+        background-color: #fff;
+    }
+    .categories-section .section-title-container {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .categories-section .section-heading {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #000;
+        margin: 0;
+    }
+    .category-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #f9f9f9;
+        margin-bottom: 20px;
+        display: block;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .category-image-wrap {
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: transparent;
+    }
+    .category-image-wrap img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+    }
+    .category-card:hover .category-image-wrap img {
+        transform: scale(1.08);
+    }
+    .category-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        color: #fff;
+        text-align: center;
+    }
+    .category-title {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: 0;
+        color: #fff;
+    }
+    @media(max-width: 768px) {
+        .category-image-wrap {
+            height: 200px;
+        }
+        .categories-section .section-heading {
+            font-size: 1.3rem;
+        }
+    }
+
+    /* NEW ARRIVALS HEADER WITH VIEW MORE BUTTON */
+    .section-header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #eee;
+        margin-bottom: 40px;
+        padding-bottom: 15px;
+    }
+    .section-header-flex .product-tab-nav {
+        margin-bottom: 0 !important;
+        border-bottom: none !important;
+    }
+    .view-more-link {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #000;
+        letter-spacing: 1px;
+        transition: color 0.2s ease;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .view-more-link:hover {
+        color: #ff3366;
+    }
+
+    /* --- BLACK THEME MATCHED HYPEHAUS F1 SECTION WITH ROTATING BADGE (4-COLUMN GRID) --- */
+    .f1-showdown-section {
+        padding: 40px 0;
+        background: #000;
+        position: relative;
+        overflow: hidden;
+        border-top: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .f1-showdown-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    @media(max-width: 1200px) {
+        .f1-showdown-container {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 800px;
+        }
+    }
+
+    @media(max-width: 768px) {
+        .f1-showdown-container {
+            grid-template-columns: 1fr;
+            max-width: 480px;
+        }
+    }
+
+    .f1-card {
+        position: relative;
+        height: 310px;
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px;
+        text-decoration: none;
+        transition: all 0.4s ease;
+        background: #111;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+        border: 1px solid #333;
+    }
+
+    .f1-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(255,255,255,0.15);
+        border-color: #fff;
+    }
+
+    .f1-bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 20px;
+        z-index: 1;
+        transition: transform 0.5s ease;
+    }
+
+    .f1-card:hover .f1-bg-img {
+        transform: scale(1.05);
+    }
+
+    .f1-overlay-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.95) 15%, rgba(0,0,0,0.4) 55%, transparent 100%);
+        z-index: 2;
+    }
+
+    .f1-content {
+        position: relative;
+        z-index: 3;
+    }
+
+    /* ROTATING UPPER CORNER BADGE */
+    .rotating-badge-wrapper {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 60px;
+        height: 60px;
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    .rotating-badge-wrapper svg {
+        width: 100%;
+        height: 100%;
+        animation: badge-spin 10s linear infinite;
+    }
+
+    .rotating-badge-wrapper svg text {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 9.5px;
+        font-weight: 700;
+        fill: #fff;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    @keyframes badge-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .f1-team-tag {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 8px;
+        background: #222;
+        color: #fff;
+    }
+
+    .f1-card.mercedes .f1-team-tag { background: #00d2be; color: #000; }
+    .f1-card.ferrari .f1-team-tag { background: #ff2800; color: #fff; }
+    .f1-card.redbull .f1-team-tag { background: #1e41ff; color: #fff; }
+    .f1-card.mclaren .f1-team-tag { background: #ff8700; color: #000; }
+
+    .f1-title {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        line-height: 1.2;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .f1-price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #333;
+        padding-top: 10px;
+    }
+
+    .f1-price {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .f1-cta-btn {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 8px 14px;
+        border-radius: 4px;
+        background: #fff;
+        color: #000;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .f1-cta-btn:hover {
+        background: #ff3366;
+        color: #fff;
+    }
+
+    .f1-header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #222;
+        margin-bottom: 25px;
+        padding-bottom: 12px;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .f1-header-title {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+        color: #fff;
+    }
+    .f1-header-title span {
+        color: #ff3366;
+    }
+
+    /* CATEGORIES SECTION STYLING FIX FOR MOBILE 5-ITEM GRID */
+    @media(max-width: 768px) {
+        /* Make the 5th item take up full width or center nicely on its own row */
+        .categories-section .row {
+            justify-content: center;
+        }
+        .category-last-item {
+            flex: 0 0 75%; /* Gives the 5th item a cleaner, centered look instead of a small box on the left */
+            max-width: 75%;
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+    <!-- Spider-Man Hanging Element -->
+    <div class="spider-hanging-corner">
+        <div class="spider-string"></div>
+        <img src="assets/images/icons/image.png" alt="Spider-Man Hanging" class="spider-image" />
+    </div>
+
+    <!-- Compact Music Player Elements -->
+    <audio id="bg-audio" loop preload="auto">
+        <source src="assets/audio/background-track.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-widget" id="music-widget">
+        <div class="music-btn"><i class="fa fa-play" id="music-icon"></i></div>
+        <span class="music-title" id="music-status">MUSIC: OFF</span>
+        <div class="sound-wave"><span></span><span></span><span></span></div>
+    </div>
+
+    <!-- Floating Product & Scribble Background Start -->
+    <div class="scribble-bg">
+        <div class="scribble scribble-1"></div>
+        <div class="scribble scribble-2"></div>
+        <div class="scribble scribble-3"></div>
+        <div class="scribble scribble-shoe"></div>
+        <div class="scribble scribble-tshirt"></div>
+        <div class="scribble scribble-shirt"></div>
+        <div class="scribble scribble-jeans"></div>
+    </div>
+    <!-- Floating Product & Scribble Background End -->
+
+    <div class="header section">
+        <!-- Header Top Start -->
+        <div class="header-top bg-light">
+            <div class="container">
+                <div class="row row-cols-xl-2 align-items-center"></div>
+            </div>
+        </div>
+        <!-- Header Top End -->
+
+        <div class="hype-container">
+          <div class="marquee-track">
+            <div class="marquee-content">
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+              <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Header Bottom Start -->
+        <div class="header-bottom">
+            <div class="header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-3 col-6">
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <img class="header-logo-img" src="assets/images/logo/Hypehaus4k.png" alt="Site Logo" />
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+
+                        <!-- Header Menu Start -->
+                        <div class="col-xl-7 d-none d-xl-block">
+                            <div class="main-menu position-relative">
+                                <ul>
+                                    <li class="has-children">
+                                        <a href="#"><span>Home</span></a>
+                                    </li>
+                                    <li class="has-children position-static">
+                                        <a href="#"><span>Shop</span> <i class="fa fa-angle-down"></i></a>
+                                        <ul class="mega-menu row-cols-4">
+                                            <li class="col">
+                                                <h4 class="mega-menu-title">Shop Layout</h4>
+                                                <ul class="mb-n2">
+                                                   <li><a href="Shoe.html">Shoes</a></li>
+                                     <li><a href="Jersey.html">Jerseys</a></li>
+                                     <li><a href="tshirt.html">T-Shirts</a></li> 
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="about.html"><span>About</span> </a>
+                                    </li>
+                                    
+                                    <li><a href="contact.html"> <span>Contact</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Header Menu End -->
+
+                        <!-- Header Action Start -->
+                        <div class="col-xl-2 col-6">
+                            <div class="header-actions justify-content-end">
+                                <a href="javascript:void(0)" class="header-action-btn header-action-btn-menu d-xl-none d-lg-block">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Action End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Bottom End -->
+
+        <!-- Mobile Menu Start -->
+        <div class="mobile-menu-wrapper">
+            <div class="offcanvas-overlay"></div>
+            <div class="mobile-menu-inner">
+                <div class="offcanvas-btn-close">
+                    <i class="pe-7s-close"></i>
+                </div>
+                
+                <div class="mobile-navigation">
+                    <nav>
+                        <ul class="mobile-menu">
+                            <li class="has-children"><a href="index.html">Home </a></li>
+                            <li class="has-children">
+                                <a href="#">Shop <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul class="dropdown">
+                                     <li><a href="Shoe.html">Shoes</a></li>
+                                     <li><a href="Jersey.html">Jerseys</a></li>                               
+                                </ul>
+                            </li>
+                            <li class="has-children"><a href="about.html">About </a></li>
+                            <li class="has-children"><a href="checkout.html">Checkout </a></li>
+                            
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="mt-auto">
+                    <ul class="contact-links">
+                        <li><i class="fa fa-phone"></i><a href="#"> +91 97249 57688</a></li>
+                        <li><i class="fa fa-envelope-o"></i><a href="#"> hypehaus.gmail.com</a></li>
+                        <li><i class="fa fa-clock-o"></i> <span>Monday - Sunday 9.00 - 09.00</span> </li>
+                    </ul>
+                    <div class="widget-social">
+                        <a title="Instagram" href="https://www.instagram.com/hypehaus.store/"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu End -->
+
+        <!-- Offcanvas Search Start -->
+        <div class="offcanvas-search">
+            <div class="offcanvas-search-inner">
+                <div class="offcanvas-btn-close">
+                    <i class="pe-7s-close"></i>
+                </div>
+                <form class="offcanvas-search-form" action="#">
+                    <input type="text" placeholder="Search Here..." class="offcanvas-search-input">
+                </form>
+            </div>
+        </div>
+        <!-- Offcanvas Search End -->
+    </div>
+
+    <!-- Hero/Intro Slider Start -->
+    <div class="section">
+        <div class="hero-slider">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Single Hero Slider Item 1 -->
+                    <div class="hero-slide-item-two swiper-slide">
+                        <div class="hero-slide-bg">
+                            <video autoplay muted loop playsinline>
+                                <source src="assets/videos/video1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Single Hero Slider Item 2 -->
+                    <div class="hero-slide-item-two swiper-slide">
+                        <div class="hero-slide-bg">
+                            <video autoplay muted loop playsinline>
+                                <source src="assets/videos/video2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <!-- Single Hero Slider Item 3 -->
+                    <div class="hero-slide-item-two swiper-slide">
+                        <div class="hero-slide-bg">
+                            <video autoplay muted loop playsinline>
+                                <source src="assets/videos/video3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper Pagination & Nav -->
+                <div class="swiper-pagination d-md-none"></div>
+                <div class="home-slider-prev swiper-button-prev main-slider-nav d-md-flex d-none"><i class="pe-7s-angle-left"></i></div>
+                <div class="home-slider-next swiper-button-next main-slider-nav d-md-flex d-none"><i class="pe-7s-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero/Intro Slider End -->
+
+    <!-- Feature Section Start -->
+    <div class="section section-margin">
+        <div class="container">
+            <div class="feature-wrap">
+                <div class="row row-cols-lg-4 row-cols-xl-auto row-cols-sm-2 row-cols-1 justify-content-between mb-n5">
+                    <div class="col mb-5" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature">
+                            <div class="icon text-primary align-self-center">
+                                <img src="assets/images/icons/feature-icon-2.png" alt="Feature Icon">
+                            </div>
+                            <div class="content">
+                                <h5 class="title">Dispatch In 48 hours</h5>
+                                <p>All Over INDIA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col mb-5" data-aos="fade-up" data-aos-delay="500">
+                        <div class="feature">
+                            <div class="icon text-primary align-self-center">
+                                <img src="assets/images/icons/feature-icon-3.png" alt="Feature Icon">
+                            </div>
+                            <div class="content">
+                                <h5 class="title">Support 24/7</h5>
+                                <p>Support 24 hours a day</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col mb-5" data-aos="fade-up" data-aos-delay="900">
+                        <div class="feature">
+                            <div class="icon text-primary align-self-center">
+                                <img src="assets/images/icons/feature-icon-1.png" alt="Feature Icon">
+                            </div>
+                            <div class="content">
+                                <h5 class="title">Order Discount</h5>
+                                <p>On every order over ₹1999</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Section End -->
+
+   <!-- Categories Section Start -->
+    <div class="categories-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title-container" data-aos="fade-up">
+                        <h2 class="section-heading">Shop By Category</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <!-- Category 1 -->
+                <div class="col-lg col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <a href="shop.html" class="category-card">
+                        <div class="category-image-wrap">
+                            <img src="assets/images/icons/jeans.png" alt="Jeans Collection">
+                        </div>
+                        <div class="category-overlay">
+                            <h3 class="category-title">Jeans</h3>
+                        </div>
+                    </a>
+                </div>
+                <!-- Category 2 -->
+                <div class="col-lg col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <a href="shop.html" class="category-card">
+                        <div class="category-image-wrap">
+                            <img src="assets/images/icons/Shirt.png" alt="Shirt Collection">
+                        </div>
+                        <div class="category-overlay">
+                            <h3 class="category-title">Shirt</h3>
+                        </div>
+                    </a>
+                </div>
+                <!-- Category 3 -->
+                <div class="col-lg col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <a href="tshirt.html" class="category-card">
+                        <div class="category-image-wrap">
+                            <img src="assets/images/icons/tshirt.png" alt="T-Shirt Collection">
+                        </div>
+                        <div class="category-overlay">
+                            <h3 class="category-title">T-Shirt</h3>
+                        </div>
+                    </a>
+                </div>
+                <!-- Category 4 -->
+                <div class="col-lg col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <a href="Shoe.html" class="category-card">
+                        <div class="category-image-wrap">
+                            <img src="assets/images/wj/h1.png" alt="Shoe Collection">
+                        </div>
+                        <div class="category-overlay">
+                            <h3 class="category-title">Shoe</h3>
+                        </div>
+                    </a>
+                </div>
+                <!-- Category 5 (The 5th item) -->
+                <div class="col-lg col-md-4 col-sm-6 col-6 category-last-item" data-aos="fade-up" data-aos-delay="500">
+                    <a href="Jersey.html" class="category-card">
+                        <div class="category-image-wrap">
+                            <img src="assets/images/icons/jersey.png" alt="Jersey Collection">
+                        </div>
+                        <div class="category-overlay">
+                            <h3 class="category-title">Jersey</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Categories Section End -->
+
+    <!-- Product Section Start -->
+    <div class="section section-padding mt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header-flex">
+                        <ul class="product-tab-nav nav">
+                            <li class="nav-item" data-aos="fade-up" data-aos-delay="300">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#tab-product-all" style="font-family:'Syncopate',sans-serif; font-size:1.3rem; font-weight:700;">New Arrivals</a>
+                            </li>
+                        </ul>
+                        <a href="Shoe.html" class="view-more-link">
+                            View More <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="tab-content position-relative">
+                        <div class="tab-pane fade show active" id="tab-product-all">
+                            <div class="product-carousel">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+
+                                        <!-- Product 1 -->
+                                        <div class="swiper-slide">
+                                            <div class="product product-border-left" data-aos="fade-up" data-aos-delay="300">
+                                                <div class="thumb">
+                                                    <a href="single-product.html" class="image">
+                                                        <img class="first-image" src="assets/images/wj/h1.png" alt="Product" />
+                                                        <img class="second-image" src="assets/images/wj/h1.1.png" alt="Product" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="title"><a href="single-product.html">Travis scott fragment low</a></h5>
+                                                    <span class="ratings">
+                                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                                    </span>
+                                                    <span class="price">
+                                                        <span class="new">₹1799</span>
+                                                        <span class="old">₹1999</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product 2 -->
+                                        <div class="swiper-slide">
+                                            <div class="product product-border-left" data-aos="fade-up" data-aos-delay="400">
+                                                <div class="thumb">
+                                                    <a href="single-product 2.html" class="image">
+                                                        <img class="first-image" src="assets/images/wj/h2.png" alt="Product" />
+                                                        <img class="second-image" src="assets/images/wj/h2.1.jpg" alt="Product" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="title"><a href="single-product 2.html">DUNK REVERSE PANDA</a></h5>
+                                                    <span class="ratings">
+                                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                                    </span>
+                                                    <span class="price">
+                                                        <span class="new">₹1649</span>
+                                                        <span class="old">₹1849</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product 3 -->
+                                        <div class="swiper-slide">
+                                            <div class="product product-border-left" data-aos="fade-up" data-aos-delay="400">
+                                                <div class="thumb">
+                                                    <a href="single-product3.html" class="image">
+                                                        <img class="first-image" src="assets/images/wj/h3.png" alt="Product" />
+                                                        <img class="second-image" src="assets/images/wj/h3.1.jpg" alt="Product" />
+                                                    </a>
+                                                    <span class="badges"><span class="sale">New</span></span>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="title"><a href="single-product3.html">DUNK OTOMO BEAR</a></h5>
+                                                    <span class="ratings">
+                                                        <span class="rating-wrap"><span class="star" style="width: 90%"></span></span>
+                                                    </span>
+                                                    <span class="price">
+                                                        <span class="new">₹1749</span>
+                                                        <span class="old">₹1999</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product 4 -->
+                                        <div class="swiper-slide">
+                                            <div class="product product-border-left" data-aos="fade-up" data-aos-delay="500">
+                                                <div class="thumb">
+                                                    <a href="single-product4.html" class="image">
+                                                        <img class="first-image" src="assets/images/wj/h4.png" alt="Product" />
+                                                        <img class="second-image" src="assets/images/wj/h4.1.png" alt="Product" />
+                                                    </a>
+                                                    <span class="badges"><span class="sale">New</span></span>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="title"><a href="single-product4.html">Jumpman University Red</a></h5>
+                                                    <span class="ratings">
+                                                        <span class="rating-wrap"><span class="star" style="width: 80%"></span></span>
+                                                        <span class="rating-num">(2)</span>
+                                                    </span>
+                                                    <span class="price">
+                                                        <span class="new">₹1949</span>
+                                                        <span class="old">₹3499</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product 5 -->
+                                        <div class="swiper-slide">
+                                            <div class="product product-border-left" data-aos="fade-up" data-aos-delay="500">
+                                                <div class="thumb">
+                                                    <a href="single-product5.html" class="image">
+                                                        <img class="first-image" src="assets/images/wj/h5.png" alt="Product" />
+                                                        <img class="second-image" src="assets/images/wj/h5.1.png" alt="Product" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="title"><a href="single-product5.html">Samba Black</a></h5>
+                                                    <span class="ratings">
+                                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                                        <span class="rating-num">(12)</span>
+                                                    </span>
+                                                    <span class="price">
+                                                        <span class="new">₹1799</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product 6 -->
+                                        <div class="swiper-slide">
+                                            <div class="product product-border-left" data-aos="fade-up" data-aos-delay="600">
+                                                <div class="thumb">
+                                                    <a href="single-product10.html" class="image">
+                                                        <img class="first-image" src="assets/images/wj/h6.jpg" alt="Product" />
+                                                        <img class="second-image" src="assets/images/wj/h6.1.jpg" alt="Product" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="title"><a href="single-product10.html">Samba white</a></h5>
+                                                    <span class="ratings">
+                                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                                        <span class="rating-num">(09)</span>
+                                                    </span>
+                                                    <span class="price">
+                                                        <span class="new">₹1799</span>
+                                                        <span class="old">₹2499</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product 7 -->
+                                        <div class="swiper-slide">
+                                            <div class="product product-border-left" data-aos="fade-up" data-aos-delay="600">
+                                                <div class="thumb">
+                                                    <a href="single-product6.html" class="image">
+                                                        <img class="first-image" src="assets/images/wj/h7.jpg" alt="Product" />
+                                                        <img class="second-image" src="assets/images/wj/h7.1.jpg" alt="Product" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="title"><a href="single-product6.html">YEAR OF DRAGON 2024</a></h5>
+                                                    <span class="ratings">
+                                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                                        <span class="rating-num">(06)</span>
+                                                    </span>
+                                                    <span class="price">
+                                                        <span class="new">₹1949</span>
+                                                        <span class="old">₹4999</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product 8 -->
+                                        <div class="swiper-slide">
+                                            <div class="product product-border-left" data-aos="fade-up" data-aos-delay="700">
+                                                <div class="thumb">
+                                                    <a href="single-product7.html" class="image">
+                                                        <img class="first-image" src="assets/images/wj/h8.jpg" alt="Product" />
+                                                        <img class="second-image" src="assets/images/wj/h8.1.jpg" alt="Product" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="title"><a href="single-product7.html">DUNK HAYLEY WILSON</a></h5>
+                                                    <span class="ratings">
+                                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                                        <span class="rating-num">(4)</span>
+                                                    </span>
+                                                    <span class="price">
+                                                        <span class="new">₹1999</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product 9 -->
+                                        <div class="swiper-slide">
+                                            <div class="product product-border-left" data-aos="fade-up" data-aos-delay="700">
+                                                <div class="thumb">
+                                                    <a href="single-product8.html" class="image">
+                                                        <img class="first-image" src="assets/images/wj/h9.jpg" alt="Product" />
+                                                        <img class="second-image" src="assets/images/wj/h9.1.jpg" alt="Product" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="title"><a href="single-product8.html">AF1 COFFEE MILK</a></h5>
+                                                    <span class="ratings">
+                                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                                        <span class="rating-num">(12)</span>
+                                                    </span>
+                                                    <span class="price">
+                                                        <span class="new">₹1799</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product 10 -->
+                                        <div class="swiper-slide">
+                                            <div class="product product-border-left" data-aos="fade-up" data-aos-delay="800">
+                                                <div class="thumb">
+                                                    <a href="single-product9.html" class="image">
+                                                        <img class="first-image" src="assets/images/wj/h10.jpg" alt="Product" />
+                                                        <img class="second-image" src="assets/images/wj/h10.1.jpg" alt="Product" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="title"><a href="single-product9.html">AF1 HAMAVA</a></h5>
+                                                    <span class="ratings">
+                                                        <span class="rating-wrap"><span class="star" style="width: 70%"></span></span>
+                                                        <span class="rating-num">(09)</span>
+                                                    </span>
+                                                    <span class="price">
+                                                        <span class="new">₹1799</span>
+                                                        <span class="old">₹2599</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="swiper-pagination d-md-none"></div>
+
+                                    <div class="swiper-product-button-next swiper-button-next swiper-button-white d-md-flex d-none"><i class="pe-7s-angle-right"></i></div>
+                                    <div class="swiper-product-button-prev swiper-button-prev swiper-button-white d-md-flex d-none"><i class="pe-7s-angle-left"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product Section End -->
+
+    <!-- F1 Showdown Section Start (4-Item Grid) -->
+    <div class="f1-showdown-section">
+        <div class="container">
+            <div class="f1-header-flex">
+                <h2 class="f1-header-title">F1 Paddock <span>Grid</span></h2>
+                <a href="Jersey.html" class="view-more-link" style="color:#fff;">
+                    View All <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+            <div class="f1-showdown-container">
+                
+                <!-- Mercedes AMG Petronas Jersey -->
+                <a href="Jersey.html" class="f1-card mercedes">
+                    <div class="rotating-badge-wrapper">
+                        <svg viewBox="0 0 100 100">
+                            <path id="curve" fill="transparent" d="M 15, 50 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                            <text>
+                                <textPath href="#curve" startOffset="0%">NEW DROP // LIMITED // HYPEHAUS</textPath>
+                            </text>
+                        </svg>
+                    </div>
+                    <img src="assets/images/jersey/j1.jpg" alt="Mercedes F1 Jersey" class="f1-bg-img" />
+                    <div class="f1-overlay-gradient"></div>
+                    <div class="f1-content">
+                        <span class="f1-team-tag">AMG Petronas // 44</span>
+                        <h3 class="f1-title">MERCEDES AMG PETRONAS F1 2025</h3>
+                        <div class="f1-price-row">
+                            <span class="f1-price">₹749</span>
+                            <span class="f1-cta-btn">Shop Now</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Scuderia Ferrari Jersey -->
+                <a href="Jersey.html" class="f1-card ferrari">
+                    <div class="rotating-badge-wrapper">
+                        <svg viewBox="0 0 100 100">
+                            <path id="curve2" fill="transparent" d="M 15, 50 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                            <text>
+                                <textPath href="#curve2" startOffset="0%">NEW DROP // LIMITED // HYPEHAUS</textPath>
+                            </text>
+                        </svg>
+                    </div>
+                    <img src="assets/images/jersey/j3.png" alt="Ferrari F1 Jersey" class="f1-bg-img" />
+                    <div class="f1-overlay-gradient"></div>
+                    <div class="f1-content">
+                        <span class="f1-team-tag">Scuderia Ferrari // 16</span>
+                        <h3 class="f1-title">SCUDERIA FERRARI F1</h3>
+                        <div class="f1-price-row">
+                            <span class="f1-price">₹749</span>
+                            <span class="f1-cta-btn">Shop Now</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Red Bull Racing Jersey -->
+                <a href="Jersey.html" class="f1-card redbull">
+                    <div class="rotating-badge-wrapper">
+                        <svg viewBox="0 0 100 100">
+                            <path id="curve3" fill="transparent" d="M 15, 50 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                            <text>
+                                <textPath href="#curve3" startOffset="0%">NEW DROP // LIMITED // HYPEHAUS</textPath>
+                            </text>
+                        </svg>
+                    </div>
+                    <img src="assets/images/jersey/j5.webp" alt="Red Bull F1 Jersey" class="f1-bg-img" />
+                    <div class="f1-overlay-gradient"></div>
+                    <div class="f1-content">
+                        <span class="f1-team-tag">Red Bull // 1</span>
+                        <h3 class="f1-title">CASTORE RED BULL RACING F1</h3>
+                        <div class="f1-price-row">
+                            <span class="f1-price">₹1199</span>
+                            <span class="f1-cta-btn">Shop Now</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- McLaren Racing Jersey (Newly Added) -->
+                <a href="Jersey.html" class="f1-card mclaren">
+                    <div class="rotating-badge-wrapper">
+                        <svg viewBox="0 0 100 100">
+                            <path id="curve4" fill="transparent" d="M 15, 50 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                            <text>
+                                <textPath href="#curve4" startOffset="0%">NEW DROP // LIMITED // HYPEHAUS</textPath>
+                            </text>
+                        </svg>
+                    </div>
+                    <img src="assets/images/jersey/j7.webp" alt="McLaren F1 Jersey" class="f1-bg-img" />
+                    <div class="f1-overlay-gradient"></div>
+                    <div class="f1-content">
+                        <span class="f1-team-tag">AMG Petronas // 44</span>
+                        <h3 class="f1-title">MERCEDES AMG PETRONAS F1 2025 </h3>
+                        <div class="f1-price-row">
+                            <span class="f1-price">₹1199</span>
+                            <span class="f1-cta-btn">Shop Now</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <!-- F1 Showdown Section End -->
+
+    <!-- Footer Section Start -->
+    <footer class="section footer-section">
+        <div class="footer-top section-padding">
+            <div class="container">
+                <div class="row mb-n10">
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-4 mb-10" data-aos="fade-up" data-aos-delay="200">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Contact Us</h2>
+                            <ul class="widget-address">
+                                <li><span>Address: </span>INDIA, Gujarat</li>
+                                <li><span>Call to: </span> <a href="#"> +91 97249 57688</a></li>
+                                <li><span>Mail to: </span> <a href="#"> hypehaus.gmail.com</a></li>
+                            </ul>
+                            <div class="widget-social justify-content-start mt-4">
+                                <a title="Instagram" href="https://www.instagram.com/hypehaus.store/"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-2 col-xl-2 mb-10" data-aos="fade-up" data-aos-delay="300">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Information</h2>
+                            <ul class="widget-list">
+                                 <li><a href="about.html">About Us</a></li>
+                                <li><a href="Delivery Information.html">Delivery Information</a></li>
+                                <li><a href="terms_and_return_policy.html">Privacy Policy</a></li>
+                                <li><a href="terms_and_return_policy.html">Terms & Conditions</a></li>
+                                <li><a href="terms_and_return_policy.html">Customer Service</a></li>
+                                <li><a href="terms_and_return_policy.html">Return Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-4 mb-10" data-aos="fade-up" data-aos-delay="500">
+                        <div class="single-footer-widget">
+                            <div class="widget-body">
+                                <div class="newsletter-form-wrap pt-4">
+                                    <form action="https://formsubmit.co/aryan223ptl@gmail.com" method="POST" id="mc-form" class="mc-form">
+                                        <input type="hidden" name="_captcha" value="false">
+                                        <input type="email" id="mc-email" class="form-control email-box mb-4" placeholder="Enter your email here.." name="email" required>
+                                        <button id="mc-submit" class="newsletter-btn btn btn-primary btn-hover-dark" type="submit">Subscribe</button>
+                                    </form>
+                                    <div class="mailchimp-alerts text-centre mt-2">
+                                        <div id="subscription-status"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center">
+                        <div class="copyright-content">
+                            <p class="mb-0">©2026 Made with <i class="fa fa-heart text-danger"></i> by <a href="#">HypeHaus</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+   <!-- Scroll Top Start -->
+    <a href="#" class="scroll-top" id="scroll-top">
+        <i class="arrow-top fa fa-long-arrow-up"></i>
+        <i class="arrow-bottom fa fa-long-arrow-up"></i>
+    </a>
+    <!-- Scroll Top End -->
+
+    <!-- Vendors JS -->
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
+    <!-- Plugins JS -->
+    <script src="assets/js/plugins/countdown.min.js"></script>
+    <script src="assets/js/plugins/aos.min.js"></script>
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/nice-select.min.js"></script>
+    <script src="assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/plugins/jquery-ui.min.js"></script>
+    <script src="assets/js/plugins/lightgallery-all.min.js"></script>
+    <script src="assets/js/plugins/thia-sticky-sidebar.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.getElementById('mc-form').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            var form = this;
+            var status = document.getElementById('subscription-status');
+            var data = new FormData(form);
+            
+            status.innerHTML = '<span class="text-info">Submitting...</span>';
+            
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = '<span class="text-success">Thank you! You have successfully subscribed.</span>';
+                    form.reset(); 
+                } else {
+                    status.innerHTML = '<span class="text-danger">Oops! There was a problem submitting your subscription.</span>';
+                }
+            }).catch(error => {
+                status.innerHTML = '<span class="text-danger">Oops! Connection error. Please try again later.</span>';
+            });
+        });
+
+        // Trigger Swiper update on tab toggle
+        document.querySelectorAll('a[data-bs-toggle="tab"]').forEach(tab => {
+            tab.addEventListener('shown.bs.tab', function () {
+                document.querySelectorAll('.swiper-container').forEach(container => {
+                    if (container.swiper) container.swiper.update();
+                });
+            });
+        });
+
+        // Tap 1: Play | Tap 2: Pause Audio Handler
+        const widget = document.getElementById('music-widget');
+        const audio = document.getElementById('bg-audio');
+        const icon = document.getElementById('music-icon');
+        const status = document.getElementById('music-status');
+
+        widget.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                widget.classList.add('playing');
+                icon.className = 'fa fa-pause';
+                status.innerText = 'MUSIC: ON';
+            } else {
+                audio.pause();
+                widget.classList.remove('playing');
+                icon.className = 'fa fa-play';
+                status.innerText = 'MUSIC: OFF';
+            }
+        });
+    </script>
+</body>
+</html>

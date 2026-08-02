@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1K579PQJE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P1K579PQJE');
+    </script>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">Shoe Details - HypeHaus</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/pe-icon-7-stroke.min.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/aos.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Custom CSS matching shoe.html design theme -->
+    <style>
+        .product-detail-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e7e7e7;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .main-product-img {
+            max-height: 420px;
+            width: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            background-color: #fafafa;
+            margin-bottom: 15px;
+        }
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .thumb-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .thumb-img:hover, .thumb-img.active {
+            border-color: #B12704;
+            transform: translateY(-2px);
+        }
+        .price-wrap .new {
+            font-size: 24px;
+            font-weight: bold;
+            color: #B12704;
+        }
+        .price-wrap .old {
+            font-size: 16px;
+            text-decoration: line-through;
+            color: #767676;
+            margin-left: 8px;
+        }
+        .product-size a.size-btn {
+            display: inline-block;
+            padding: 6px 14px;
+            font-size: 13px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: #333;
+            margin-right: 6px;
+            margin-top: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .product-size a.size-btn:hover, .product-size a.size-btn.active {
+            background-color: #000;
+            color: #fff;
+            border-color: #000;
+        }
+        .buy-btn {
+            background-color: #B12704;
+            color: #fff;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 4px;
+            width: 100%;
+            text-align: center;
+            display: block;
+            transition: background 0.2s;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .buy-btn:hover {
+            background-color: #902003;
+            color: #fff;
+        }
+        .info-section-card {
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #e7e7e7;
+            padding: 30px;
+            margin-bottom: 50px;
+        }
+        .info-tabs {
+            border-bottom: 2px solid #eee;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 30px;
+        }
+        .info-tab-link {
+            font-weight: 600;
+            font-size: 15px;
+            color: #767676;
+            padding-bottom: 10px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: color 0.2s;
+        }
+        .info-tab-link.active {
+            color: #111;
+            border-bottom-color: #B12704;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .policy-list {
+            padding-left: 20px;
+        }
+        .policy-list li {
+            margin-bottom: 6px;
+            color: #444;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header section">
+        <!-- Header Top Start -->
+        <div class="header-top bg-light">
+            <div class="container">
+                <div class="row row-cols-xl-2 align-items-center"></div>
+            </div>
+        </div>
+
+        <!-- Header Bottom Start -->
+        <div class="header-bottom">
+            <div class="header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-2">
+                            <div class="header-logo">
+                                <a href="index.html"><img class="col-xl-6" src="assets/images/logo/Hypehaus (1).png" alt="Site Logo" /></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 d-none d-xl-block">
+                            <div class="main-menu position-relative">
+                                <ul>
+                                    <li class="has-children">
+                                        <a href="index.html"><span>Home</span></a>
+                                    </li>
+                                    <li class="has-children position-static">
+                                        <a href="#"><span>Shop</span> <i class="fa fa-angle-down"></i></a>
+                                        <ul class="mega-menu row-cols-4">
+                                            <li class="col">
+                                                <h4 class="mega-menu-title">Shop Layout</h4>
+                                                <ul class="mb-n2">
+                                                   <li><a href="Shoe.html">Shoes</a></li>
+                                                   <li><a href="Jersey.html">Jerseys</a></li>
+                                                   <li><a href="tshirt.html">T-Shirts</a></li> 
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="about.html"><span>About</span></a>
+                                    </li>
+                                    <li><a href="contact.html"><span>Contact</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-10">
+                            <div class="header-actions">
+                                <a href="javascript:void(0)" class="header-action-btn header-action-btn-menu d-xl-none d-lg-block">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Start -->
+        <div class="mobile-menu-wrapper">
+            <div class="offcanvas-overlay"></div>
+            <div class="mobile-menu-inner">
+                <div class="offcanvas-btn-close">
+                    <i class="pe-7s-close"></i>
+                </div>
+                <div class="mobile-navigation">
+                    <nav>
+                        <ul class="mobile-menu">
+                            <li class="has-children"><a href="index.html">Home</a></li>
+                            <li class="has-children">
+                                <a href="#">Shop <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul class="dropdown">
+                                    <li><a href="Shoe.html">Shoes</a></li>
+                                    <li><a href="Jersey.html">Jerseys</a></li>
+                                    <li><a href="tshirt.html">T-Shirts</a></li> 
+                                </ul>
+                            </li>
+                            <li class="has-children"><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb Section Start -->
+    <div class="section">
+        <div class="breadcrumb-area bg-light">
+            <div class="container-fluid">
+                <div class="breadcrumb-content text-center">
+                    <h1 class="title">Product Details</h1>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Shoe.html">Shoes</a></li>
+                        <li class="active" id="breadcrumb-subtitle">Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Section Start -->
+    <div class="section section-margin">
+        <div class="container">
+            <div class="product-detail-card">
+                <div class="row align-items-center">
+                    <!-- Product Images -->
+                    <div class="col-md-6 mb-4 mb-md-0 text-center">
+                        <img id="main-product-img" src="" alt="Product Image" class="main-product-img">
+                        <div id="thumbnail-box" class="thumbnail-container"></div>
+                    </div>
+
+                    <!-- Product Details Info -->
+                    <div class="col-md-6 ps-md-4">
+                        <h4 id="shoe-subtitle" class="sub-title" style="color: #767676; text-transform: uppercase; font-size: 12px; margin-bottom: 5px;">SUBTITLE</h4>
+                        <h2 id="shoe-title" style="font-size: 24px; font-weight: 700; color: #111; margin-bottom: 10px;">Loading Title...</h2>
+                        
+                        <span class="ratings mb-3 d-block">
+                            <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                            <span id="shoe-rating-num" class="rating-num">(19)</span>
+                        </span>
+
+                        <div class="price-wrap mb-3">
+                            <span id="shoe-price" class="new">₹0</span>
+                            <span id="shoe-old-price" class="old">₹0</span>
+                        </div>
+
+                        <p id="shoe-desc" class="text-muted mb-4" style="font-size: 14px; line-height: 1.6;">Loading product description...</p>
+
+                        <div class="mb-4">
+                            <span class="d-block fw-bold mb-2" style="font-size: 13px; color: #333;">SELECT SIZE:</span>
+                            <div id="size-options" class="product-size">
+                                <!-- Dynamic Sizes -->
+                            </div>
+                        </div>
+
+                        <!-- Checkout / Buy Action -->
+                        <div class="cart-wishlist-btn mb-3">
+                            <a id="buy-now-btn" href="checkout.html" class="buy-btn">
+                                Proceed to Checkout
+                            </a>
+                        </div>
+                        <div class="text-muted" style="font-size: 12px;">
+                            <i class="fa fa-shield text-dark me-1"></i> 100% Genuine HypeHaus Quality Guaranteed
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information Tabs -->
+            <div class="info-section-card">
+                <div class="info-tabs">
+                    <div class="info-tab-link active" onclick="switchTab(event, 'specs-tab')">Description & Specs</div>
+                    <div class="info-tab-link" onclick="switchTab(event, 'shipping-tab')">Shipping Information</div>
+                    <div class="info-tab-link" onclick="switchTab(event, 'returns-tab')">Return Policy</div>
+                </div>
+
+                <!-- Tab 1: Specs -->
+                <div id="specs-tab" class="tab-pane active">
+                    <h5 class="fw-bold mb-3" style="font-size: 16px;">Product Specifications</h5>
+                    <p class="text-muted mb-3" style="font-size: 14px;">Every pair sourced at HypeHaus undergoes stringent quality checks for precision stitching, exact materials, comfort fit, and authentic colorways.</p>
+                    <table class="table table-bordered" style="font-size: 13px; max-width: 600px;">
+                        <tr>
+                            <td class="fw-bold bg-light" style="width: 35%;">Category</td>
+                            <td id="spec-category">Sneakers / Footwear</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold bg-light">Available Sizes</td>
+                            <td>UK6, UK7, UK8, UK9, UK10</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold bg-light">Delivery Timeline</td>
+                            <td>3–7 Business Days across India</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Tab 2: Shipping -->
+                <div id="shipping-tab" class="tab-pane">
+                    <h5 class="fw-bold mb-3" style="font-size: 16px;">Shipping Details</h5>
+                    <ul class="policy-list">
+                        <li>Orders are processed and packed within 24 to 48 hours.</li>
+                        <li>All shipments are fully insured against transit damage or loss.</li>
+                        <li>Tracking information is shared via email and SMS upon dispatch.</li>
+                    </ul>
+                </div>
+
+                <!-- Tab 3: Returns -->
+                <div id="returns-tab" class="tab-pane">
+                    <h5 class="fw-bold mb-3" style="font-size: 16px;">Return & Exchange Policy</h5>
+                    <ul class="policy-list">
+                        <li>Easy size exchanges available within 4 days of delivery.</li>
+                        <li>Items must be unworn, in pristine condition, and accompanied by the original box.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product Details Section End -->
+
+    <!-- Footer Section Start -->
+    <footer class="section footer-section">
+        <div class="footer-top section-padding">
+            <div class="container">
+                <div class="row mb-n10">
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-4 mb-10">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Contact Us</h2>
+                            <ul class="widget-address">
+                                <li><span>Address: </span>INDIA, Gujarat</li>
+                                <li><span>Call to: </span> <a href="#"> +91 97249 57688</a></li>
+                                <li><span>Mail to: </span> <a href="#"> hypehaus.gmail.com</a></li>
+                            </ul>
+                            <div class="widget-social justify-content-start mt-4">
+                                <a title="Instagram" href="https://www.instagram.com/hypehaus.store/"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-2 col-xl-2 mb-10">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Information</h2>
+                            <ul class="widget-list">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="Delivery Information.html">Delivery Information</a></li>
+                                <li><a href="terms-condition.html">Privacy Policy</a></li>
+                                <li><a href="terms-condition.html">Terms & Conditions</a></li>
+                                <li><a href="terms-condition.html">Customer Service</a></li>
+                                <li><a href="terms-condition.html">Return Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center">
+                        <div class="copyright-content">
+                            <p class="mb-0">© 2026 Made with <i class="fa fa-heart text-danger"></i> by <a href="#">HypeHaus</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Vendor & Plugins JS -->
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Script to Load Database & Handle Dynamic Product Content -->
+    <script>
+        function switchTab(evt, tabId) {
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+            document.querySelectorAll('.info-tab-link').forEach(link => link.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Database mapping exact products from shoe.html (supporting ID query strings or specific filenames)
+        const productsDB = {
+            "1": {
+                subtitle: "Travis scott",
+                title: "Travis scott fragment low",
+                price: "₹1799",
+                oldPrice: "₹1999",
+                rating: "(19)",
+                images: ["assets/images/wj/h1.png", "assets/images/wj/h1.1.png"],
+                desc: "Featuring the iconic reverse swoosh design in a clean white, black, and royal blue colorway. Built with premium tumbled leather panels for ultimate durability and streetwear prestige."
+            },
+            "2": {
+                subtitle: "LOW DUNKS",
+                title: "DUNK REVERSE PANDA",
+                price: "₹1649",
+                oldPrice: "₹1849",
+                rating: "(15)",
+                images: ["assets/images/wj/h2.png", "assets/images/wj/h2.1.jpg"],
+                desc: "An inverted twist on the legendary panda aesthetic. High-contrast color blocks make this dunk low a mandatory staple for everyday rotations."
+            },
+            "3": {
+                subtitle: "LOW DUNKS",
+                title: "DUNK OTOMO BEAR",
+                price: "₹1749",
+                oldPrice: "₹1999",
+                rating: "(15)",
+                images: ["assets/images/wj/h3.png", "assets/images/wj/h3.1.jpg"],
+                desc: "Inspired by whimsical collectible bear designs, featuring vibrant multi-colored panels and plush lining for unique shelf appeal and street presence."
+            },
+            "4": {
+                subtitle: "TRAVIS SCOTT",
+                title: "Jumpman University Red",
+                price: "₹1949",
+                oldPrice: "₹3499",
+                rating: "(15)",
+                images: ["assets/images/wj/h4.png", "assets/images/wj/h4.1.png"],
+                desc: "Striking university red blocking merged with signature collaboration accents. Delivers high-impact styling and premier ankle support."
+            },
+            "5": {
+                subtitle: "ADIDAS",
+                title: "Samba Black",
+                price: "₹1799",
+                oldPrice: "₹2499",
+                rating: "(15)",
+                images: ["assets/images/wj/h5.png", "assets/images/wj/h5.1.png"],
+                desc: "The timeless indoor classic finished in rich black leather with crisp white three-stripes and a gum rubber sole."
+            },
+            "6": {
+                subtitle: "ADIDAS",
+                title: "Samba White",
+                price: "₹1799",
+                oldPrice: "₹2499",
+                rating: "(15)",
+                images: ["assets/images/wj/h6.jpg", "assets/images/wj/h6.1.jpg"],
+                desc: "Crisp white leather upper matched with suede toe overlays. Clean, understated, and endlessly versatile for any fit."
+            },
+            "7": {
+                subtitle: "LOW DUNKS",
+                title: "YEAR OF DRAGON 2024",
+                price: "₹1949",
+                oldPrice: "₹4999",
+                rating: "(15)",
+                images: ["assets/images/wj/h7.jpg", "assets/images/wj/h7.1.jpg"],
+                desc: "Special commemorative edition featuring intricate cultural scale textures and celebratory metallic highlights."
+            },
+            "8": {
+                subtitle: "LOW DUNKS",
+                title: "DUNK HAYLEY WILSON",
+                price: "₹1999",
+                oldPrice: "₹2999",
+                rating: "(15)",
+                images: ["assets/images/wj/h8.jpg", "assets/images/wj/h8.1.jpg"],
+                desc: "Skate-inspired execution with durable overlays, padded tongue construction, and exceptional board feel."
+            },
+            "9": {
+                subtitle: "AIR FORCE",
+                title: "AF1 COFFEE MILK",
+                price: "₹1799",
+                oldPrice: "₹1999",
+                rating: "(15)",
+                images: ["assets/images/wj/h9.jpg", "assets/images/wj/h9.1.jpg"],
+                desc: "Subtle earth-toned mocha accents layered over the classic chunky air-cushioned sole unit."
+            },
+            "10": {
+                subtitle: "AIR FORCE",
+                title: "AF1 HAMAVA",
+                price: "₹1799",
+                oldPrice: "₹1999",
+                rating: "(15)",
+                images: ["assets/images/wj/h10.jpg", "assets/images/wj/h10.1.jpg"],
+                desc: "A fresh interpretation of the iconic white low-top sneaker featuring custom accent details."
+            }
+        };
+
+        // Fallback mappings if users link via old filenames (e.g., single-product.html)
+        const filenameMap = {
+            "single-product.html": "1",
+            "single-product 2.html": "2",
+            "single-product3.html": "3",
+            "single-product4.html": "4",
+            "single-product5.html": "5",
+            "single-product6.html": "7",
+            "single-product7.html": "8",
+            "single-product8.html": "9",
+            "single-product9.html": "10",
+            "single-product10.html": "6"
+        };
+
+        // Determine current product ID
+        const urlParams = new URLSearchParams(window.location.search);
+        let prodId = urlParams.get('id');
+
+        if (!prodId) {
+            const pathName = window.location.pathname.split("/").pop();
+            prodId = filenameMap[pathName] || "1"; // Default to product 1 if unmatched
+        }
+
+        const product = productsDB[prodId] || productsDB["1"];
+
+        // Populate HTML Elements
+        document.getElementById('shoe-subtitle').innerText = product.subtitle;
+        document.getElementById('shoe-title').innerText = product.title;
+        document.getElementById('breadcrumb-subtitle').innerText = product.title;
+        document.getElementById('page-title').innerText = product.title + " - HypeHaus";
+        document.getElementById('shoe-price').innerText = product.price;
+        document.getElementById('shoe-old-price').innerText = product.oldPrice;
+        document.getElementById('shoe-rating-num').innerText = product.rating;
+        document.getElementById('shoe-desc').innerText = product.desc;
+        document.getElementById('spec-category').innerText = product.subtitle + " / Sneakers";
+        document.getElementById('buy-now-btn').href = `checkout.html?product=${encodeURIComponent(product.title)}`;
+
+        // Render Sizes
+        const sizesContainer = document.getElementById('size-options');
+        const sizesList = ["UK6", "UK7", "UK8", "UK9", "UK10"];
+        sizesContainer.innerHTML = '';
+
+        sizesList.forEach((sz, idx) => {
+            const a = document.createElement('a');
+            a.href = "javascript:void(0);";
+            a.className = "size-btn" + (idx === 2 ? " active" : ""); // Default UK8 active
+            a.innerHTML = `<strong>${sz}</strong>`;
+            a.addEventListener('click', () => {
+                document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
+                a.classList.add('active');
+            });
+            sizesContainer.appendChild(a);
+        });
+
+        // Render Images & Thumbnails
+        const mainImg = document.getElementById('main-product-img');
+        const thumbBox = document.getElementById('thumbnail-box');
+        mainImg.src = product.images[0];
+        thumbBox.innerHTML = '';
+
+        product.images.forEach((imgSrc, idx) => {
+            const thumb = document.createElement('img');
+            thumb.src = imgSrc;
+            thumb.className = "thumb-img" + (idx === 0 ? " active" : "");
+            thumb.addEventListener('click', () => {
+                mainImg.src = imgSrc;
+                document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+            });
+            thumbBox.appendChild(thumb);
+        });
+    </script>
+</body>
+
+</html>

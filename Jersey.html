@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1K579PQJE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P1K579PQJE');
+    </script>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HypeHaus - Fashion ecommerce</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/pe-icon-7-stroke.min.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/aos.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Custom CSS for Layout, Zoom, and Lightbox Modal -->
+    <style>
+        .shop_wrapper .product-inner {
+            padding: 10px;
+            border: 1px solid #e7e7e7;
+            border-radius: 8px;
+            background: #fff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: box-shadow 0.2s ease-in-out;
+        }
+
+        .shop_wrapper .product-inner:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .shop_wrapper .thumb {
+            text-align: center;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .shop_wrapper .thumb img {
+            max-height: 180px;
+            object-fit: contain;
+            width: 100%;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        /* Left/Right image switcher buttons styling on card */
+        .img-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 4px 8px;
+            cursor: pointer;
+            font-size: 12px;
+            border-radius: 3px;
+            z-index: 10;
+        }
+        .img-nav-prev { left: 5px; }
+        .img-nav-next { right: 5px; }
+        .img-nav-btn:hover { background: rgba(0, 0, 0, 0.8); }
+        
+        .shop_wrapper .content .sub-title {
+            font-size: 10px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            color: #767676;
+            letter-spacing: 0.5px;
+        }
+        
+        .shop_wrapper .content .title {
+            font-size: 13px;
+            line-height: 1.25;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .shop_wrapper .content .title a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .shop_wrapper .content .title a:hover {
+            color: #B12704;
+        }
+
+        .shop_wrapper .ratings {
+            margin-bottom: 4px;
+            font-size: 11px;
+        }
+
+        .shop_wrapper .price-wrap {
+            margin-bottom: 6px;
+        }
+
+        .shop_wrapper .price-wrap .new {
+            font-size: 14px;
+            font-weight: bold;
+            color: #B12704;
+        }
+
+        .shop_wrapper .price-wrap .old {
+            font-size: 11px;
+            text-decoration: line-through;
+            color: #767676;
+            margin-left: 4px;
+        }
+
+        .shop_wrapper .product-size {
+            font-size: 10px;
+            margin-bottom: 8px;
+            color: #555;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2px;
+        }
+        
+        .shop_wrapper .product-size span.size-badge {
+            padding: 2px 6px;
+            font-size: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        /* Buy Now Button Style */
+        .buy-now-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #ffd814;
+            border: 1px solid #fcd200;
+            border-radius: 4px;
+            color: #111;
+            padding: 6px 0;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(213,217,217,.5);
+        }
+        .buy-now-btn:hover {
+            background-color: #f7ca00;
+            color: #111;
+        }
+
+        /* SPIDER-MAN HANGING CORNER STYLES */
+        .spider-hanging-corner {
+            position: fixed;
+            top: 0;
+            right: 20px;
+            width: 110px;
+            height: 180px;
+            z-index: 99998;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .spider-string {
+            width: 2px;
+            height: 50px;
+            background: #ffffff;
+            opacity: 0.8;
+            box-shadow: 0 0 4px rgba(255,255,255,0.6);
+        }
+        .spider-image {
+            width: 90px;
+            height: auto;
+            object-fit: contain;
+            animation: spider-swing 3s ease-in-out infinite alternate;
+            transform-origin: top center;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.8));
+        }
+        @keyframes spider-swing {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+        @media (max-width: 768px) {
+            .spider-hanging-corner {
+                width: 80px;
+                height: 140px;
+                right: 10px;
+            }
+            .spider-string {
+                height: 35px;
+            }
+            .spider-image {
+                width: 65px;
+            }
+        }
+
+        /* Fullscreen Lightbox Modal CSS */
+        #lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        #lightbox-modal img {
+            max-width: 85%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .lightbox-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 16px 20px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 5px;
+            user-select: none;
+        }
+        .lightbox-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        .lightbox-prev { left: 30px; }
+        .lightbox-next { right: 30px; }
+    </style>
+</head>
+
+<body>
+    <!-- Spider-Man Hanging Element -->
+    <div class="spider-hanging-corner">
+        <div class="spider-string"></div>
+        <img src="assets/images/icons/image.png" alt="Spider-Man Hanging" class="spider-image" />
+    </div>
+
+    <div class="header section">
+        <!-- Header Bottom Start -->
+        <div class="header-bottom">
+            <div class="header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-2">
+                            <div class="header-logo">
+                                <a href="index.html"><img class="col-xl-6" src="assets/images/logo/Hypehaus (1).png" alt="Site Logo" /></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 d-none d-xl-block">
+                            <div class="main-menu position-relative">
+                                <ul>
+                                    <li class="has-children">
+                                        <a href="index.html"><span>Home</span></a>
+                                    </li>
+                                    <li class="has-children position-static">
+                                        <a href="#"><span>Shop</span> <i class="fa fa-angle-down"></i></a>
+                                        <ul class="mega-menu row-cols-4">
+                                            <li class="col">
+                                                <h4 class="mega-menu-title">Shop Layout</h4>
+                                                <ul class="mb-n2">
+                                                    <li><a href="Shoe.html">Shoes</a></li>
+                                                    <li><a href="Jersey.html">Jerseys</a></li>
+                                                    <li><a href="tshirt.html">T-Shirts</a></li> 
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="about.html"><span>About</span></a>
+                                    </li>
+                                    <li><a href="contact.html"><span>Contact</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-10">
+                            <div class="header-actions">
+                                <a href="javascript:void(0)" class="header-action-btn header-action-btn-menu d-xl-none d-lg-block">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb Section Start -->
+    <div class="section">
+        <div class="breadcrumb-area bg-light">
+            <div class="container-fluid">
+                <div class="breadcrumb-content text-center">
+                    <h1 class="title">Shop List</h1>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active">Jerseys</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop Section Start -->
+    <div class="section section-margin">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="shop_toolbar_wrapper flex-column flex-md-row mb-10">
+                        <div class="shop-top-bar-left mb-md-0 mb-2">
+                            <div class="shop-top-show">
+                                <span>Showing 1–4 of 4 results</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2-Column Product Grid Wrapper Start (4 Jerseys Linked to jersey-product.html) -->
+                    <div class="row shop_wrapper" data-aos="fade-up" data-aos-delay="200">
+
+                        <!-- Jersey Product 1 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb" id="product-thumb-1">
+                                    <button class="img-nav-btn img-nav-prev" onclick="switchImage(1, -1)">&#10094;</button>
+                                    <div class="image">
+                                        <img class="product-img" src="assets/images/jersey/j1.jpg" alt="Jersey 1" data-images='["assets/images/jersey/j1.jpg", "assets/images/jersey/j2.jpg"]' onclick="openLightbox(1)" />
+                                    </div>
+                                    <button class="img-nav-btn img-nav-next" onclick="switchImage(1, 1)">&#10095;</button>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title">F1 Edition</h4>
+                                    <h5 class="title"><a href="jersey-product.html?id=1">MERCEDES AMG PETRONAS F1 2025 UNISEX REGULAR FIT POLO (BLACK)</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(24)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹749</span>
+                                        <span class="old">₹1349</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <span class="size-badge"><strong>S</strong></span>
+                                        <span class="size-badge"><strong>M</strong></span>
+                                        <span class="size-badge"><strong>L</strong></span>
+                                        <span class="size-badge"><strong>XL</strong></span>
+                                    </div>
+                                    <a href="checkout.html?product=F1 MERCEDES PETRONAS BLACK POLO PREMIUM" target="_blank" class="buy-now-btn">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jersey Product 2 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb" id="product-thumb-2">
+                                    <button class="img-nav-btn img-nav-prev" onclick="switchImage(2, -1)">&#10094;</button>
+                                    <div class="image">
+                                        <img class="product-img" src="assets/images/jersey/j3.png" alt="Jersey 2" data-images='["assets/images/jersey/j3.png", "assets/images/jersey/j4.png"]' onclick="openLightbox(2)" />
+                                    </div>
+                                    <button class="img-nav-btn img-nav-next" onclick="switchImage(2, 1)">&#10095;</button>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title">SPECIAL EDITION</h4>
+                                    <h5 class="title"><a href="jersey-product.html?id=2">SCUDERIA FERRARI F1 UNISEX POLO T-SHIRT</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(18)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹749</span>
+                                        <span class="old">₹1349</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <span class="size-badge"><strong>S</strong></span>
+                                        <span class="size-badge"><strong>M</strong></span>
+                                        <span class="size-badge"><strong>L</strong></span>
+                                        <span class="size-badge"><strong>XL</strong></span>
+                                    </div>
+                                    <a href="checkout.html?product=f1 ferrari scuderia red polo premium" target="_blank" class="buy-now-btn">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jersey Product 3 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb" id="product-thumb-3">
+                                    <button class="img-nav-btn img-nav-prev" onclick="switchImage(3, -1)">&#10094;</button>
+                                    <div class="image">
+                                        <img class="product-img" src="assets/images/jersey/j5.webp" alt="Jersey 3" data-images='["assets/images/jersey/j5.webp", "assets/images/jersey/j6.jpg"]' onclick="openLightbox(3)" />
+                                    </div>
+                                    <button class="img-nav-btn img-nav-next" onclick="switchImage(3, 1)">&#10095;</button>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title">RACING EDITION</h4>
+                                    <h5 class="title"><a href="jersey-product.html?id=3">CASTORE RED BULL RACING F1 UNISEX POLO T-SHIRT</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(15)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1199</span>
+                                        <span class="old">₹1349</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <span class="size-badge"><strong>S</strong></span>
+                                        <span class="size-badge"><strong>M</strong></span>
+                                        <span class="size-badge"><strong>L</strong></span>
+                                        <span class="size-badge"><strong>XL</strong></span>
+                                    </div>
+                                    <a href="checkout.html?product=F1 RED BULL RACING TEAM BLUE JERSEY" target="_blank" class="buy-now-btn">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jersey Product 4 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb" id="product-thumb-4">
+                                    <button class="img-nav-btn img-nav-prev" onclick="switchImage(4, -1)">&#10094;</button>
+                                    <div class="image">
+                                        <img class="product-img" src="assets/images/jersey/j7.webp" alt="Jersey 4" data-images='["assets/images/jersey/j7.webp", "assets/images/jersey/j8.webp"]' onclick="openLightbox(4)" />
+                                    </div>
+                                    <button class="img-nav-btn img-nav-next" onclick="switchImage(4, 1)">&#10095;</button>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title">F1 Edition</h4>
+                                    <h5 class="title"><a href="jersey-product.html?id=4">MERCEDES AMG PETRONAS F1 2025</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(21)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1199</span>
+                                        <span class="old">₹1499</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <span class="size-badge"><strong>S</strong></span>
+                                        <span class="size-badge"><strong>M</strong></span>
+                                        <span class="size-badge"><strong>L</strong></span>
+                                        <span class="size-badge"><strong>XL</strong></span>
+                                    </div>
+                                    <a href="checkout.html?product=F1 MCLAREN RACING PAPAYA TEAM T-SHIRT" target="_blank" class="buy-now-btn">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- 2-Column Product Grid Wrapper End -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Shop Section End -->
+
+    <!-- Fullscreen Lightbox Modal popup -->
+    <div id="lightbox-modal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <button class="lightbox-btn lightbox-prev" onclick="changeLightboxImage(-1)">&#10094;</button>
+        <img id="lightbox-img" src="" alt="Zoomed Product View" />
+        <button class="lightbox-btn lightbox-next" onclick="changeLightboxImage(1)">&#10095;</button>
+    </div>
+
+    <!-- Footer Section Start -->
+    <footer class="section footer-section">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center">
+                        <div class="copyright-content">
+                            <p class="mb-0">© 2026 Made with <i class="fa fa-heart text-danger"></i> by <a href="#">HypeHaus</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Image Switching & Lightbox Zoom JavaScript -->
+    <script>
+        const imageIndexes = { 1: 0, 2: 0, 3: 0, 4: 0 };
+        let currentLightboxProduct = 1;
+        let currentLightboxIndex = 0;
+
+        function switchImage(productNum, direction) {
+            const container = document.getElementById('product-thumb-' + productNum);
+            const imgElement = container.querySelector('.product-img');
+            const images = JSON.parse(imgElement.getAttribute('data-images'));
+            
+            imageIndexes[productNum] += direction;
+            if (imageIndexes[productNum] >= images.length) {
+                imageIndexes[productNum] = 0;
+            } else if (imageIndexes[productNum] < 0) {
+                imageIndexes[productNum] = images.length - 1;
+            }
+            
+            imgElement.src = images[imageIndexes[productNum]];
+        }
+
+        function openLightbox(productNum) {
+            currentLightboxProduct = productNum;
+            currentLightboxIndex = imageIndexes[productNum];
+            
+            const container = document.getElementById('product-thumb-' + productNum);
+            const imgElement = container.querySelector('.product-img');
+            const images = JSON.parse(imgElement.getAttribute('data-images'));
+            
+            document.getElementById('lightbox-img').src = images[currentLightboxIndex];
+            document.getElementById('lightbox-modal').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').style.display = 'none';
+        }
+
+        function changeLightboxImage(direction) {
+            const container = document.getElementById('product-thumb-' + currentLightboxProduct);
+            const imgElement = container.querySelector('.product-img');
+            const images = JSON.parse(imgElement.getAttribute('data-images'));
+            
+            currentLightboxIndex += direction;
+            if (currentLightboxIndex >= images.length) {
+                currentLightboxIndex = 0;
+            } else if (currentLightboxIndex < 0) {
+                currentLightboxIndex = images.length - 1;
+            }
+            
+            document.getElementById('lightbox-img').src = images[currentLightboxIndex];
+            imageIndexes[currentLightboxProduct] = currentLightboxIndex;
+            imgElement.src = images[currentLightboxIndex];
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('lightbox-modal');
+            if (event.target === modal) {
+                closeLightbox();
+            }
+        }
+    </script>
+
+    <!-- Vendor & Plugins JS -->
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/plugins/aos.min.js"></script>
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/nice-select.min.js"></script>
+    <script src="assets/js/plugins/jquery-ui.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1K579PQJE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P1K579PQJE');
+    </script>
+        
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HypeHaus - Fashion ecommerce</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
+    <!-- Vendor CSS (Icon Font) -->
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/pe-icon-7-stroke.min.css">
+
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/aos.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght=700&family=Inter:wght@400;500;600;700&display=swap');
+
+    /* Global Body Setup */
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #fafafa;
+        color: #111;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Marquee Banner - Flush to top */
+    .hype-container {
+      background-color: #000;
+      color: #fff;
+      padding: 12px 0; 
+      overflow: hidden;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      border-bottom: 2px solid #fff;
+    }
+
+    .hype-container:hover {
+      background-color: #fff;
+      color: #000;
+      border-bottom: 2px solid #000;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+    }
+
+    .marquee-content {
+      display: flex;
+      white-space: nowrap;
+      animation: warp-scroll 12s linear infinite; 
+    }
+
+    .marquee-content span {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 1.25rem; 
+      font-weight: 700;
+      letter-spacing: 1px; 
+      text-transform: uppercase;
+      padding-right: 40px;
+    }
+
+    @keyframes warp-scroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Layout fixes for mobile header */
+    .header-bottom .container .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Fixed active slide-out state for mobile navigation */
+    .mobile-menu-wrapper {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        transition: all 0.4s ease;
+        visibility: hidden;
+    }
+    
+    .mobile-menu-wrapper.open {
+        left: 0;
+        visibility: visible;
+    }
+
+    /* Mobile Submenu Dropdown logic styling */
+    .mobile-menu .has-dropdown > .menu-item-link-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mobile-menu .dropdown {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        padding-left: 15px;
+        margin: 0;
+        list-style: none;
+    }
+
+    /* Class when Javascript opens the menu item dropdown */
+    .mobile-menu .has-dropdown.active-dropdown .dropdown {
+        max-height: 200px; /* Adjust maximum height allocation as needed */
+        margin-top: 8px;
+        padding-bottom: 5px;
+    }
+
+    .mobile-menu .menu-toggle-arrow {
+        cursor: pointer;
+        padding: 5px 10px;
+        font-size: 14px;
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-menu .has-dropdown.active-dropdown .menu-toggle-arrow {
+        transform: rotate(180deg);
+    }
+
+    /* Contact Section Layout */
+    .contact-wrapper {
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 0 20px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    /* Cards Style */
+    .card {
+        background: #ffffff;
+        border: 2px solid #111111;
+        padding: 40px;
+        border-radius: 0; 
+        box-shadow: 6px 6px 0px rgba(0,0,0,0.1);
+    }
+
+    .card h2, .map-section h2 {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+        border-bottom: 3px solid #000;
+        padding-bottom: 12px;
+    }
+
+    /* Form Container & Visible Inputs */
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-group label {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #111;
+    }
+
+    .contact-form input, .contact-form textarea {
+        width: 100%;
+        padding: 16px;
+        border: 2px solid #222222;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        color: #000;
+        background-color: #ffffff;
+        transition: all 0.2s ease;
+        box-sizing: border-box;
+    }
+
+    .contact-form input:focus, .contact-form textarea:focus {
+        outline: none;
+        background-color: #fcfcfc;
+        border-color: #000;
+        box-shadow: 4px 4px 0px #000;
+    }
+
+    .contact-form button {
+        background-color: #000;
+        color: #fff;
+        border: 2px solid #000;
+        padding: 18px 36px;
+        font-family: 'Syncopate', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        align-self: flex-start;
+        margin-top: 10px;
+    }
+
+    .contact-form button:hover {
+        background-color: #fff;
+        color: #000;
+        box-shadow: 4px 4px 0px #000;
+    }
+
+    /* Info Details styling */
+    .contact-info-list p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin: 20px 0;
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 15px;
+    }
+
+    .contact-info-list p strong {
+        display: inline-block;
+        width: 110px;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        color: #555;
+    }
+
+    /* Interactive Map Frame */
+    .map-section {
+        margin-top: 60px;
+    }
+
+    .map-container {
+        position: relative;
+        padding-bottom: 450px; 
+        height: 0;
+        overflow: hidden;
+        border: 2px solid #111;
+    }
+
+    .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        border: 0;
+    }
+
+    footer {
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 80px;
+    }
+
+    footer p {
+        margin: 0;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+    }
+
+    /* Screen Adaptations */
+    @media (max-width: 991px) {
+        .grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .contact-form button {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .product-carousel .product {
+          max-width: 250px;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          text-align: center;
+        }
+        .product-carousel .product .thumb {
+          margin: 0 auto;
+        }
+        .contact-wrapper {
+            margin: 30px auto;
+        }
+        .card {
+            padding: 25px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Marquee Ticker - Placed at the extreme top layout root -->
+    <div class="hype-container">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+          <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+          <span>HYPEHAUS // COMING Soon //&nbsp;</span>
+          <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+          <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+          <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+          <span>HYPEHAUS // COMING SOON //&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header section">
+        <!-- Header Bottom Start -->
+        <div class="header-bottom">
+            <div class="header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <!-- Header Logo -->
+<div class="col-xl-2 col-6">
+    <div class="header-logo">
+        <a href="index.html">
+            <img src="assets/images/logo/Hypehaus (1).png" 
+                 alt="Site Logo" 
+                 style="width: 100%; max-width: 140px; height: auto; display: block; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; transform: translateZ(0); -webkit-font-smoothing: antialiased;" />
+        </a>
+    </div>
+</div>
+
+                        <!-- Desktop Main Menu -->
+                        <div class="col-xl-8 d-none d-xl-block">
+                            <div class="main-menu position-relative">
+                                <ul>
+                                    <li><a href="index.html"><span>Home</span></a></li>
+                                    <li class="has-children position-static">
+                                        <a href="shop.html"><span>Shop</span> <i class="fa fa-angle-down"></i></a>
+                                        <ul class="mega-menu row-cols-4">
+                                            <li class="col">
+                                                <h4 class="mega-menu-title">Shop Layout</h4>
+                                                <ul class="mb-n2">
+                                                   <li><a href="Shoe.html">Shoes</a></li>
+                                     <li><a href="Jersey.html">Jerseys</a></li>
+                                     <li><a href="tshirt.html">T-Shirts</a></li> 
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="about.html"><span>About</span></a></li>
+                                    <li><a href="contact.html"><span>Contact</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Menu Button (3 Lines Trigger) -->
+                        <div class="col-6 text-end d-xl-none">
+                            <div class="header-actions" style="display: inline-block;">
+                                <a href="javascript:void(0)" class="header-action-btn mobile-menu-toggle-btn" style="font-size: 24px; color: #111;">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Slide-out Menu Canvas -->
+    <div class="mobile-menu-wrapper">
+        <div class="offcanvas-overlay mobile-menu-close-trigger" style="position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 998;"></div>
+        <div class="mobile-menu-inner" style="position: relative; z-index: 999; background: #fff; width: 300px; height: 100%; padding: 30px; display: flex; flex-direction: column;">
+            
+            <div class="offcanvas-btn-close mobile-menu-close-trigger" style="cursor: pointer; text-align: right; font-size: 30px; margin-bottom: 20px;">
+                <i class="pe-7s-close"></i>
+            </div>
+            
+            <div class="mobile-navigation">
+                <nav>
+                    <ul class="mobile-menu" style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 15px;"><a href="index.html" style="font-size: 18px; font-weight: 600; text-decoration: none; color: #111;">Home</a></li>
+                        
+                        <!-- Fixed Shop Menu with Toggle Mechanism -->
+                        <li class="has-dropdown" style="margin-bottom: 15px;">
+                            <div class="menu-item-link-container">
+                                <a href="shop.html" style="font-size: 18px; font-weight: 600; text-decoration: none; color: #111;">Shop</a>
+                                <span class="menu-toggle-arrow"><i class="fa fa-angle-down"></i></span>
+                            </div>
+                            <ul class="dropdown">
+                                <li><a href="Shoe.html" style="text-decoration: none; color: #666; font-size: 16px; display: block; padding: 5px 0;">Shoes</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li style="margin-bottom: 15px;"><a href="about.html" style="font-size: 18px; font-weight: 600; text-decoration: none; color: #111;">About</a></li>
+                        <li style="margin-bottom: 15px;"><a href="contact.html" style="font-size: 18px; font-weight: 600; text-decoration: none; color: #111;">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="mt-auto">
+                <ul class="contact-links" style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 8px;"><i class="fa fa-phone"></i><a href="tel:+919724957688" style="text-decoration: none; color: #555;"> +91 97249 57688</a></li>
+                    <li style="margin-bottom: 8px;"><i class="fa fa-envelope-o"></i><a href="mailto:hypehaus@gmail.com" style="text-decoration: none; color: #555;"> hypehaus@gmail.com</a></li>
+                    <li style="font-size: 13px; color: #777;"><i class="fa fa-clock-o"></i> <span>Mon - Sun 9:00 - 21:00</span></li>
+                </ul>
+                <div class="widget-social" style="margin-top: 15px;">
+                    <a title="Instagram" href="https://www.instagram.com/hypehaus.store/" style="font-size: 20px; color: #111;"> <i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form Container -->
+    <div class="container">
+        <h1 style="margin-top: 40px; font-family: 'Syncopate', sans-serif;">GET IN TOUCH</h1>
+        
+        <div class="contact-wrapper">
+            <div class="grid">
+                <div class="card">
+                    <h2>HYPEHAUS</h2>
+                    <form class="contact-form" action="https://formsubmit.co/aryan223ptl@gmail.com" method="POST">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" name="email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" name="phone" placeholder="Enter phone number">
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" name="subject" placeholder="What is this regarding?">
+                        </div>
+                        <div class="form-group">
+                            <label>Your Message *</label>
+                            <textarea name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        <input type="hidden" name="_captcha" value="false">
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h2>Contact Info</h2>
+                    <div class="contact-info-list">
+                        <p><strong>Phone:</strong> +91 97249 57688</p>
+                        <p><strong>Email:</strong> hypehaus@gmail.com</p>
+                        <p><strong>Location:</strong> Gujarat, India</p>
+                        <p><strong>Website:</strong>www.hypehaus.store</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-section">
+                <h2>Our Location</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps?q=Ahmedabad&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 HypeHaus. All Rights Reserved.</p>
+    </footer>
+
+    <!-- INTERACTIVE MENU JAVASCRIPT FIXED FOR DROPDOWN ACCORDION -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.mobile-menu-toggle-btn');
+            const menuWrapper = document.querySelector('.mobile-menu-wrapper');
+            const closeButtons = document.querySelectorAll('.mobile-menu-close-trigger');
+            
+            // Submenu accordion targets
+            const shopDropdownTrigger = document.querySelector('.mobile-menu .has-dropdown .menu-toggle-arrow');
+            const shopDropdownParent = document.querySelector('.mobile-menu .has-dropdown');
+
+            // Open Mobile Menu Canvas
+            if(menuToggle && menuWrapper) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    menuWrapper.classList.add('open');
+                });
+            }
+
+            // Close Mobile Menu Canvas
+            closeButtons.forEach(function (button) {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    menuWrapper.classList.remove('open');
+                });
+            });
+
+            // Toggle "Shop -> Shoes" Slide Dropdown on arrow click
+            if (shopDropdownTrigger && shopDropdownParent) {
+                shopDropdownTrigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    shopDropdownParent.classList.toggle('active-dropdown');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

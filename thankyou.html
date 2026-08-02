@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1K579PQJE"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-P1K579PQJE');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Confirmed | HYPEHAUS</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+    body {
+        background-color: #f5f5f7;
+        font-family: 'Montserrat', sans-serif;
+        color: #1d1d1f;
+        margin: 0;
+        padding: 0;
+    }
+
+    .thankyou-wrapper {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+    }
+
+    .thankyou-card {
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e0e0e0;
+        max-width: 650px;
+        width: 100%;
+        padding: 40px 30px;
+        text-align: center;
+    }
+
+    .success-icon {
+        width: 80px;
+        height: 80px;
+        background: #e6f4ea;
+        color: #28a745;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        margin: 0 auto 20px auto;
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+    }
+
+    .thankyou-card h1 {
+        font-size: 28px;
+        font-weight: 800;
+        color: #111;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .thankyou-card p.subtitle {
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 25px;
+    }
+
+    .order-ref-box {
+        background: #f8f9fa;
+        border: 1px dashed #28a745;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 30px;
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .order-ref-box span {
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #666;
+        letter-spacing: 1px;
+    }
+
+    .order-ref-box strong {
+        font-size: 20px;
+        color: #111;
+        letter-spacing: 1.5px;
+    }
+
+    /* Timeline Tracker */
+    .timeline {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0;
+        position: relative;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 10%;
+        right: 10%;
+        height: 3px;
+        background: #e0e0e0;
+        z-index: 1;
+    }
+
+    .timeline-step {
+        position: relative;
+        z-index: 2;
+        background: #fff;
+        padding: 0 5px;
+    }
+
+    .step-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #e0e0e0;
+        color: #666;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 8px auto;
+        font-size: 16px;
+    }
+
+    .timeline-step.active .step-icon {
+        background: #28a745;
+        color: #fff;
+    }
+
+    .step-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #666;
+    }
+
+    .timeline-step.active .step-label {
+        color: #111;
+    }
+
+    /* Info Note Box */
+    .info-notice {
+        background: #f0f7ff;
+        border-left: 4px solid #0056b3;
+        padding: 15px;
+        text-align: left;
+        border-radius: 6px;
+        font-size: 13.5px;
+        color: #004085;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+
+    .action-btns {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-home {
+        background: #111;
+        color: #fff;
+        padding: 14px 28px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .btn-home:hover {
+        background: #333;
+        color: #fff;
+    }
+
+    .btn-support {
+        background: #25d366;
+        color: #fff;
+        padding: 14px 28px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-support:hover {
+        background: #1eb857;
+        color: #fff;
+    }
+
+    @media (max-width: 576px) {
+        .thankyou-card {
+            padding: 25px 18px;
+        }
+
+        .step-label {
+            font-size: 9px;
+        }
+
+        .action-btns {
+            flex-direction: column;
+        }
+
+        .btn-home, .btn-support {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            justify-content: center;
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="thankyou-wrapper">
+        <div class="thankyou-card">
+            
+            <div class="success-icon">
+                <i class="fa fa-check"></i>
+            </div>
+
+            <h1>ORDER RECEIVED!</h1>
+            <p class="subtitle">Thank you for shopping with <strong>HYPEHAUS</strong>. Your order has been registered securely.</p>
+
+            <div class="order-ref-box">
+                <span>Order Reference ID</span>
+                <strong id="orderId">HH-2026-XXXX</strong>
+            </div>
+
+            <!-- Visual Progress Tracker -->
+            <div class="timeline">
+                <div class="timeline-step active">
+                    <div class="step-icon"><i class="fa fa-file-text"></i></div>
+                    <div class="step-label">Placed</div>
+                </div>
+                <div class="timeline-step active">
+                    <div class="step-icon"><i class="fa fa-search"></i></div>
+                    <div class="step-label">Verifying</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-icon"><i class="fa fa-cube"></i></div>
+                    <div class="step-label">Dispatched</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-icon"><i class="fa fa-truck"></i></div>
+                    <div class="step-label">Delivered</div>
+                </div>
+            </div>
+
+            <div class="info-notice">
+                <i class="fa fa-info-circle"></i> <strong>What happens next?</strong><br>
+                Our team is currently verifying your payment screenshot. Once verified, you will receive a confirmation call/message and your tracking number within 24 hours. Estimated delivery: <strong>10 – 15 Business Days</strong>.
+            </div>
+
+            <div class="action-btns">
+                <a href="index.html" class="btn-home">
+                    <i class="fa fa-arrow-left"></i> RETURN TO HOME
+                </a>
+                <a href="https://wa.me/919724957688?text=Hi%20HYPEHAUS,%20I%20just%20placed%20an%20order!" target="_blank" class="btn-support">
+                    <i class="fa fa-whatsapp"></i> NEED HELP? CHAT WITH US
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+    // Read the exact ID saved at submission time
+    const savedOrderId = localStorage.getItem("hypehaus_latest_order_id");
+    
+    if (savedOrderId) {
+        document.getElementById('orderId').innerText = savedOrderId;
+    } else {
+        document.getElementById('orderId').innerText = 'HH-PENDING';
+    }
+</script>
+</body>
+
+</html>

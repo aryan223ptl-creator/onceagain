@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1K579PQJE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P1K579PQJE');
+    </script>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HypeHaus - Fashion ecommerce</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/pe-icon-7-stroke.min.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/aos.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Custom CSS for Compact 2-Column Amazon Layout -->
+    <style>
+        .shop_wrapper .product-inner {
+            padding: 10px;
+            border: 1px solid #e7e7e7;
+            border-radius: 8px;
+            background: #fff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: box-shadow 0.2s ease-in-out;
+        }
+
+        .shop_wrapper .product-inner:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .shop_wrapper .thumb {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .shop_wrapper .thumb img {
+            max-height: 140px;
+            object-fit: contain;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .shop_wrapper .content .sub-title {
+            font-size: 10px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            color: #767676;
+            letter-spacing: 0.5px;
+        }
+        
+        .shop_wrapper .content .title {
+            font-size: 13px;
+            line-height: 1.25;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .shop_wrapper .ratings {
+            margin-bottom: 4px;
+            font-size: 11px;
+        }
+
+        .shop_wrapper .price-wrap {
+            margin-bottom: 6px;
+        }
+
+        .shop_wrapper .price-wrap .new {
+            font-size: 14px;
+            font-weight: bold;
+            color: #B12704;
+        }
+
+        .shop_wrapper .price-wrap .old {
+            font-size: 11px;
+            text-decoration: line-through;
+            color: #767676;
+            margin-left: 4px;
+        }
+
+        .shop_wrapper .product-size {
+            font-size: 10px;
+            margin-bottom: 0;
+            color: #555;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2px;
+        }
+        
+        .shop_wrapper .product-size a {
+            padding: 1px 4px;
+            font-size: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="section header">
+        <!-- Header Bottom Start -->
+        <div class="header-bottom">
+            <div class="header-sticky">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-xl-2 col-6">
+                            <div class="header-logo">
+                                <a href="index.html"><img src="assets/images/logo/Hypehaus (1).png" alt="Site Logo" style="max-height: 45px;" /></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 d-none d-xl-block">
+                            <div class="main-menu position-relative">
+                                <ul>
+                                    <li class="has-children">
+                                        <a href="index.html"><span>Home</span></a>
+                                    </li>
+                                    <li class="has-children position-static">
+                                        <a href="#"><span>Shop</span> <i class="fa fa-angle-down"></i></a>
+                                        <ul class="mega-menu row-cols-4">
+                                            <li class="col">
+                                                <h4 class="mega-menu-title">Shop Layout</h4>
+                                                <ul class="mb-n2">
+                                                    <li><a href="Shoe.html">Shoes</a></li>
+                                                    <li><a href="Jersey.html">Jerseys</a></li>
+                                                    <li><a href="tshirt.html">T-Shirts</a></li> 
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="about.html"><span>About</span></a>
+                                    </li>
+                                    <li><a href="contact.html"><span>Contact</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-6 text-end">
+                            <div class="header-actions">
+                                <a href="javascript:void(0)" class="header-action-btn header-action-btn-menu d-xl-none">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Start -->
+        <div class="mobile-menu-wrapper">
+            <div class="offcanvas-overlay"></div>
+            <div class="mobile-menu-inner">
+                <div class="offcanvas-btn-close">
+                    <i class="pe-7s-close"></i>
+                </div>
+                <div class="mobile-navigation">
+                    <nav>
+                        <ul class="mobile-menu">
+                            <li class="has-children"><a href="index.html">Home</a></li>
+                            <li class="has-children">
+                                <a href="#">Shop <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul class="dropdown">
+                                    <li><a href="Shoe.html">Shoes</a></li>
+                                    <li><a href="Jersey.html">Jerseys</a></li>
+                                    <li><a href="tshirt.html">T-Shirts</a></li> 
+                                </ul>
+                            </li>
+                            <li class="has-children"><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="mt-auto">
+                    <ul class="contact-links">
+                        <li><i class="fa fa-phone"></i><a href="#"> +91 97249 57688</a></li>
+                        <li><i class="fa fa-envelope-o"></i><a href="#"> hypehaus.gmail.com</a></li>
+                        <li><i class="fa fa-clock-o"></i> <span>Monday - Sunday 9.00 - 09.00</span></li>
+                    </ul>
+                    <div class="widget-social">
+                        <a title="Instagram" href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Section Start -->
+    <div class="section">
+        <div class="breadcrumb-area bg-light">
+            <div class="container-fluid">
+                <div class="breadcrumb-content text-center">
+                    <h1 class="title">Shop List</h1>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"> Shoes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop Section Start -->
+    <div class="section section-margin">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="shop_toolbar_wrapper flex-column flex-md-row mb-10">
+                        <div class="shop-top-bar-left mb-md-0 mb-2">
+                            <div class="shop-top-show">
+                                <span>Showing 10–10 of results</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2-Column Product Grid Wrapper Start -->
+                    <div class="row shop_wrapper" data-aos="fade-up" data-aos-delay="200">
+
+                        <!-- Product 1 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb">
+                                    <a href="single-shoe.html?id=1" class="image">
+                                        <img class="first-image" src="assets/images/wj/h1.png" alt="Product" />
+                                        <img class="second-image" src="assets/images/wj/h1.1.png" alt="Product" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title"><a href="single-shoe.html?id=1">Travis scott</a></h4>
+                                    <h5 class="title"><a href="single-shoe.html?id=1">Travis scott fragment low</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(19)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1799</span>
+                                        <span class="old">₹1999</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <a href="single-shoe.html?id=1"><strong>UK6</strong></a>
+                                        <a href="single-shoe.html?id=1"><strong>UK7</strong></a>
+                                        <a href="single-shoe.html?id=1"><strong>UK8</strong></a>
+                                        <a href="single-shoe.html?id=1"><strong>UK9</strong></a>
+                                        <a href="single-shoe.html?id=1"><strong>UK10</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb">
+                                    <a href="single-shoe.html?id=2" class="image">
+                                        <img class="first-image" src="assets/images/wj/h2.png" alt="Product" />
+                                        <img class="second-image" src="assets/images/wj/h2.1.jpg" alt="Product" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title"><a href="single-shoe.html?id=2">LOW DUNKS</a></h4>
+                                    <h5 class="title"><a href="single-shoe.html?id=2">DUNK REVERSE PANDA</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(15)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1649</span>
+                                        <span class="old">₹1849</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <a href="single-shoe.html?id=2"><strong>UK6</strong></a>
+                                        <a href="single-shoe.html?id=2"><strong>UK7</strong></a>
+                                        <a href="single-shoe.html?id=2"><strong>UK8</strong></a>
+                                        <a href="single-shoe.html?id=2"><strong>UK9</strong></a>
+                                        <a href="single-shoe.html?id=2"><strong>UK10</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb">
+                                    <a href="single-shoe.html?id=3" class="image">
+                                        <img class="first-image" src="assets/images/wj/h3.png" alt="Product" />
+                                        <img class="second-image" src="assets/images/wj/h3.1.jpg" alt="Product" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title"><a href="single-shoe.html?id=3">LOW DUNKS</a></h4>
+                                    <h5 class="title"><a href="single-shoe.html?id=3">DUNK OTOMO BEAR</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(15)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1749</span>
+                                        <span class="old">₹1999</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <a href="single-shoe.html?id=3"><strong>UK6</strong></a>
+                                        <a href="single-shoe.html?id=3"><strong>UK7</strong></a>
+                                        <a href="single-shoe.html?id=3"><strong>UK8</strong></a>
+                                        <a href="single-shoe.html?id=3"><strong>UK9</strong></a>
+                                        <a href="single-shoe.html?id=3"><strong>UK10</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb">
+                                    <a href="single-shoe.html?id=4" class="image">
+                                        <img class="first-image" src="assets/images/wj/h4.png" alt="Product" />
+                                        <img class="second-image" src="assets/images/wj/h4.1.png" alt="Product" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title"><a href="single-shoe.html?id=4">TRAVIS SCOTT</a></h4>
+                                    <h5 class="title"><a href="single-shoe.html?id=4">Jumpman University Red</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(15)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1949</span>
+                                        <span class="old">₹3499</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <a href="single-shoe.html?id=4"><strong>UK6</strong></a>
+                                        <a href="single-shoe.html?id=4"><strong>UK7</strong></a>
+                                        <a href="single-shoe.html?id=4"><strong>UK8</strong></a>
+                                        <a href="single-shoe.html?id=4"><strong>UK9</strong></a>
+                                        <a href="single-shoe.html?id=4"><strong>UK10</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb">
+                                    <a href="single-shoe.html?id=5" class="image">
+                                        <img class="first-image" src="assets/images/wj/h5.png" alt="Product" />
+                                        <img class="second-image" src="assets/images/wj/h5.1.png" alt="Product" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title"><a href="single-shoe.html?id=5">ADIDAS</a></h4>
+                                    <h5 class="title"><a href="single-shoe.html?id=5">Samba Black</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(15)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1799</span>
+                                        <span class="old">₹2499</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <a href="single-shoe.html?id=5"><strong>UK6</strong></a>
+                                        <a href="single-shoe.html?id=5"><strong>UK7</strong></a>
+                                        <a href="single-shoe.html?id=5"><strong>UK8</strong></a>
+                                        <a href="single-shoe.html?id=5"><strong>UK9</strong></a>
+                                        <a href="single-shoe.html?id=5"><strong>UK10</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb">
+                                    <a href="single-shoe.html?id=6" class="image">
+                                        <img class="first-image" src="assets/images/wj/h6.jpg" alt="Product" />
+                                        <img class="second-image" src="assets/images/wj/h6.1.jpg" alt="Product" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title"><a href="single-shoe.html?id=6">ADIDAS</a></h4>
+                                    <h5 class="title"><a href="single-shoe.html?id=6">Samba White</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(15)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1799</span>
+                                        <span class="old">₹2499</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <a href="single-shoe.html?id=6"><strong>UK6</strong></a>
+                                        <a href="single-shoe.html?id=6"><strong>UK7</strong></a>
+                                        <a href="single-shoe.html?id=6"><strong>UK8</strong></a>
+                                        <a href="single-shoe.html?id=6"><strong>UK9</strong></a>
+                                        <a href="single-shoe.html?id=6"><strong>UK10</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 7 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb">
+                                    <a href="single-shoe.html?id=7" class="image">
+                                        <img class="first-image" src="assets/images/wj/h7.jpg" alt="Product" />
+                                        <img class="second-image" src="assets/images/wj/h7.1.jpg" alt="Product" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title"><a href="single-shoe.html?id=7">LOW DUNKS</a></h4>
+                                    <h5 class="title"><a href="single-shoe.html?id=7">YEAR OF DRAGON 2024</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(15)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1949</span>
+                                        <span class="old">₹4999</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <a href="single-shoe.html?id=7"><strong>UK6</strong></a>
+                                        <a href="single-shoe.html?id=7"><strong>UK7</strong></a>
+                                        <a href="single-shoe.html?id=7"><strong>UK8</strong></a>
+                                        <a href="single-shoe.html?id=7"><strong>UK9</strong></a>
+                                        <a href="single-shoe.html?id=7"><strong>UK10</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 8 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb">
+                                    <a href="single-shoe.html?id=8" class="image">
+                                        <img class="first-image" src="assets/images/wj/h8.jpg" alt="Product" />
+                                        <img class="second-image" src="assets/images/wj/h8.1.jpg" alt="Product" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title"><a href="single-shoe.html?id=8">LOW DUNKS</a></h4>
+                                    <h5 class="title"><a href="single-shoe.html?id=8">DUNK HAYLEY WILSON</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(15)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1999</span>
+                                        <span class="old">₹2999</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <a href="single-shoe.html?id=8"><strong>UK6</strong></a>
+                                        <a href="single-shoe.html?id=8"><strong>UK7</strong></a>
+                                        <a href="single-shoe.html?id=8"><strong>UK8</strong></a>
+                                        <a href="single-shoe.html?id=8"><strong>UK9</strong></a>
+                                        <a href="single-shoe.html?id=8"><strong>UK10</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 9 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb">
+                                    <a href="single-shoe.html?id=9" class="image">
+                                        <img class="first-image" src="assets/images/wj/h9.jpg" alt="Product" />
+                                        <img class="second-image" src="assets/images/wj/h9.1.jpg" alt="Product" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title"><a href="single-shoe.html?id=9">AIR FORCE</a></h4>
+                                    <h5 class="title"><a href="single-shoe.html?id=9">AF1 COFFEE MILK</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(15)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1799</span>
+                                        <span class="old">₹1999</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <a href="single-shoe.html?id=9"><strong>UK6</strong></a>
+                                        <a href="single-shoe.html?id=9"><strong>UK7</strong></a>
+                                        <a href="single-shoe.html?id=9"><strong>UK8</strong></a>
+                                        <a href="single-shoe.html?id=9"><strong>UK9</strong></a>
+                                        <a href="single-shoe.html?id=9"><strong>UK10</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 10 -->
+                        <div class="col-6 col-md-6 product mb-4">
+                            <div class="product-inner">
+                                <div class="thumb">
+                                    <a href="single-shoe.html?id=10" class="image">
+                                        <img class="first-image" src="assets/images/wj/h10.jpg" alt="Product" />
+                                        <img class="second-image" src="assets/images/wj/h10.1.jpg" alt="Product" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="sub-title"><a href="single-shoe.html?id=10">AIR FORCE</a></h4>
+                                    <h5 class="title"><a href="single-shoe.html?id=10">AF1 HAMAVA</a></h5>
+                                    <span class="ratings">
+                                        <span class="rating-wrap"><span class="star" style="width: 100%"></span></span>
+                                        <span class="rating-num">(15)</span>
+                                    </span>
+                                    <div class="price-wrap">
+                                        <span class="new">₹1799</span>
+                                        <span class="old">₹1999</span>
+                                    </div>
+                                    <div class="product-size">
+                                        <span>Size:</span>
+                                        <a href="single-shoe.html?id=10"><strong>UK6</strong></a>
+                                        <a href="single-shoe.html?id=10"><strong>UK7</strong></a>
+                                        <a href="single-shoe.html?id=10"><strong>UK8</strong></a>
+                                        <a href="single-shoe.html?id=10"><strong>UK9</strong></a>
+                                        <a href="single-shoe.html?id=10"><strong>UK10</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- 2-Column Product Grid Wrapper End -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Shop Section End -->
+
+    <!-- Footer Section Start -->
+    <footer class="section footer-section">
+        <div class="footer-top section-padding">
+            <div class="container">
+                <div class="row mb-n10">
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-4 mb-10" data-aos="fade-up" data-aos-delay="200">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Contact Us</h2>
+                            <ul class="widget-address">
+                                <li><span>Address: </span>INDIA, Gujarat</li>
+                                <li><span>Call to: </span> <a href="#"> +91 97249 57688</a></li>
+                                <li><span>Mail to: </span> <a href="#"> hypehaus.gmail.com</a></li>
+                            </ul>
+                            <div class="widget-social justify-content-start mt-4">
+                                <a title="Instagram" href="https://www.instagram.com/hypehaus.store/"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-2 col-xl-2 mb-10" data-aos="fade-up" data-aos-delay="300">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Information</h2>
+                            <ul class="widget-list">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="Delivery Information.html">Delivery Information</a></li>
+                                <li><a href="terms-condition.html">Privacy Policy</a></li>
+                                <li><a href="terms-condition.html">Terms & Conditions</a></li>
+                                <li><a href="terms-condition.html">Customer Service</a></li>
+                                <li><a href="terms-condition.html">Return Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center">
+                        <div class="copyright-content">
+                            <p class="mb-0">© 2026 Made with <i class="fa fa-heart text-danger"></i> by <a href="">HypeHaus</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Scroll Top Start -->
+    <a href="#" class="scroll-top" id="scroll-top">
+        <i class="arrow-top fa fa-long-arrow-up"></i>
+        <i class="arrow-bottom fa fa-long-arrow-up"></i>
+    </a>
+    <!-- Scroll Top End -->
+
+    <!-- Vendor & Plugins JS -->
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/plugins/aos.min.js"></script>
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/nice-select.min.js"></script>
+    <script src="assets/js/plugins/jquery-ui.min.js"></script>
+    <script src="assets/js/plugins/lightgallery-all.min.js"></script>
+    <script src="assets/js/plugins/thia-sticky-sidebar.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
